@@ -1,0 +1,149 @@
+{
+  "theme": "LIGHT",
+  "archetype": "4 (Swiss & High-Contrast) adapted for Light-Theme Glassmorphism with Neon Accents",
+  "colors": {
+    "background": {
+      "primary": "#F8FAFC",
+      "secondary": "#F1F5F9",
+      "glass": "rgba(255, 255, 255, 0.4)"
+    },
+    "text": {
+      "primary": "#0F172A",
+      "secondary": "#334155",
+      "muted": "#64748B",
+      "inverse": "#FFFFFF"
+    },
+    "brand": {
+      "neon_blue": "#00B4FF",
+      "hot_pink": "#FF00A0"
+    }
+  },
+  "typography": {
+    "headings": {
+      "fontFamily": "Outfit, sans-serif",
+      "weights": ["600", "700"],
+      "tracking": "tracking-tight"
+    },
+    "body": {
+      "fontFamily": "IBM Plex Sans, sans-serif",
+      "weights": ["400", "500"]
+    },
+    "scale": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl",
+      "h3": "text-2xl sm:text-3xl",
+      "h4": "text-xl sm:text-2xl",
+      "p": "text-base lg:text-lg",
+      "small": "text-sm"
+    }
+  },
+  "ui_patterns": {
+    "glassmorphism": {
+      "card": "bg-white/40 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)]",
+      "card_hover": "hover:shadow-[0_8px_32px_rgba(0,180,255,0.15)] hover:border-[#00B4FF]/30 transition-all duration-300",
+      "header": "bg-white/70 backdrop-blur-2xl border-b border-white/40",
+      "input": "bg-white/50 backdrop-blur-md border border-slate-200 focus:border-[#00B4FF] focus:ring-1 focus:ring-[#00B4FF] text-slate-900"
+    },
+    "buttons": {
+      "primary": "bg-gradient-to-r from-[#00B4FF] to-[#FF00A0] text-white font-medium shadow-[0_4px_14px_rgba(0,180,255,0.3)] hover:shadow-[0_6px_20px_rgba(255,0,160,0.4)] hover:-translate-y-0.5 transition-all duration-200",
+      "secondary": "bg-white/60 backdrop-blur-md text-slate-900 border border-slate-200 hover:border-[#00B4FF] hover:text-[#00B4FF] transition-all duration-200"
+    },
+    "neon_accents": {
+      "glow_text": "bg-clip-text text-transparent bg-gradient-to-r from-[#00B4FF] to-[#FF00A0]",
+      "glow_border": "border border-transparent bg-gradient-to-r from-[#00B4FF] to-[#FF00A0] [background-origin:border-box]"
+    }
+  },
+  "layout_spacing": {
+    "container": "max-w-7xl mx-auto px-6 sm:px-8 lg:px-12",
+    "section": "py-24 sm:py-32",
+    "grid_bento": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
+    "grid_standard": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+  },
+  "pages_and_routes": [
+    {
+      "path": "/",
+      "name": "Home",
+      "sections": [
+        "Hero (with tsparticles 3D background, heading, dual CTAs)",
+        "About (mission/vision in glassmorphic bento layout)",
+        "D25@1007 Benchmarking Framework highlights",
+        "CTA linking to Contact"
+      ]
+    },
+    {
+      "path": "/architecture",
+      "name": "Quantum Brain",
+      "sections": [
+        "Interactive 5-Layer Diagram (Perception, Memory, Reasoning, Planning, Learning Loop) using nested glass cards and framer-motion"
+      ]
+    },
+    {
+      "path": "/industries",
+      "name": "Industries",
+      "sections": [
+        "Industry Cards (Manufacturing, Logistics, Healthcare, Energy, Enterprise) with hover neon glows and images"
+      ]
+    },
+    {
+      "path": "/services",
+      "name": "Services",
+      "sections": [
+        "Solutions Grid (AI systems, infrastructure, deployment) using tall glass cards"
+      ]
+    },
+    {
+      "path": "/team",
+      "name": "Team",
+      "sections": [
+        "Team profiles in frosted glass cards with subtle pink/blue gradient backgrounds"
+      ]
+    },
+    {
+      "path": "/contact",
+      "name": "Contact",
+      "sections": [
+        "Full Inquiry Form (Name, Email, Company, Industry Select, Message) using customized Shadcn inputs with glass effect"
+      ]
+    }
+  ],
+  "media": {
+    "hero_background": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/886090dc-7131-41d7-9926-dd27736648ba/images/9bf2070afd63261546b59595343042cb9378397d72f6b4e9feb596ef89308b80.png",
+      "description": "Abstract 3D neural network background, light theme"
+    },
+    "architecture_concept": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/886090dc-7131-41d7-9926-dd27736648ba/images/a78621c96ac888cc8bd22d4cb16316e1bf612ee8cab14a96a939019fa1f72200.png",
+      "description": "Quantum brain layers abstract visualization"
+    },
+    "industry_manufacturing": {
+      "url": "https://images.pexels.com/photos/3544567/pexels-photo-3544567.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Manufacturing technology"
+    },
+    "industry_healthcare": {
+      "url": "https://images.pexels.com/photos/5206922/pexels-photo-5206922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Healthcare professional with tablet"
+    }
+  },
+  "tech_stack_and_libraries": [
+    "react-router-dom (for multi-page routing)",
+    "framer-motion (for scroll reveals, layer architecture animations)",
+    "lucide-react (for icons)",
+    "react-tsparticles & tsparticles (for 3D particle hero background)",
+    "shadcn/ui (for Select, Forms, Inputs - stripped of default Vercel look to match glassmorphism)",
+    "clsx & tailwind-merge (for conditional classes)"
+  ],
+  "accessibility_and_testing": {
+    "data_testid": "MANDATORY on all interactive elements (e.g., data-testid='hero-cta-button', data-testid='contact-submit-button')",
+    "contrast": "Ensure text over glassmorphic backgrounds meets 4.5:1 ratio. Use Slate-900 for primary text on light glass."
+  },
+  "instructions_to_main_agent": [
+    "1. Setup react-router-dom for separate pages: /, /architecture, /industries, /services, /team, /contact.",
+    "2. Implement a global sticky Header with glassmorphism (bg-white/70 backdrop-blur-xl) and navigation links. Desktop links must be visible, mobile uses a hamburger menu.",
+    "3. Hero Section: Use 'react-tsparticles' to create an interactive, light-themed particle network background that floats behind the main text. Use the provided neon colors for the particles.",
+    "4. All Cards MUST follow the 'ui_patterns.glassmorphism.card' rules. No solid white cards.",
+    "5. Use Framer Motion to stagger the entrance of the 5 Layers in the Quantum Brain Architecture section.",
+    "6. Do not use dark backgrounds for sections. Use #F8FAFC or #F1F5F9 as base, and let the neon gradients provide color via text-clips, buttons, or soft radial background blobs under the glass.",
+    "7. The Contact Form must use shadcn form/input components, but you must override their classes to be transparent/glassy with neon focus rings.",
+    "8. Since MAH Quantum Logo is 'provided', assume it is placed at `/logo.png` or use a stylized text logo `<span className='font-bold text-2xl tracking-tighter'>MAH <span className='text-[#00B4FF]'>Quantum</span></span>`."
+  ]
+}
