@@ -9,7 +9,6 @@ import Architecture from './pages/Architecture';
 import D25 from './pages/D25';
 import Industries from './pages/Industries';
 import Services from './pages/Services';
-import Team from './pages/Team';
 import Contact from './pages/Contact';
 
 function ScrollToTop() {
@@ -30,7 +29,6 @@ function Layout() {
           <Route path="/d25" element={<D25 />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>

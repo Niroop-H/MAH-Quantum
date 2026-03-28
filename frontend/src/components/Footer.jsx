@@ -6,7 +6,6 @@ const LOGO = '/logo.jpeg';
 const footerLinks = {
   Company: [
     { to: '/about', label: 'About Us' },
-    { to: '/team', label: 'Our Team' },
     { to: '/services', label: 'Services' },
     { to: '/contact', label: 'Contact' },
   ],

@@ -11,7 +11,6 @@ const navLinks = [
   { to: '/d25', label: 'D25@1007' },
   { to: '/industries', label: 'Industries' },
   { to: '/services', label: 'Services' },
-  { to: '/team', label: 'Team' },
 ];
 
 export default function Navbar() {
