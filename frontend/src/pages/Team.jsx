@@ -1,165 +1,241 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Linkedin, Twitter } from 'lucide-react';
+import { ArrowRight, Crown } from 'lucide-react';
 
-const fadeUp = { initial: { opacity: 0, y: 32 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
+const fadeUp = { initial: { opacity: 0, y: 28 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
+const fadeIn  = { initial: { opacity: 0 },        whileInView: { opacity: 1 },        viewport: { once: true } };
 
-const team = [
+/* ── DATA ──────────────────────────────────────────────────────────────────── */
+
+const directors = [
   {
-    id: 'ceo',
-    initials: 'MA',
-    name: 'M. Al-Hassan',
-    role: 'Founder & CEO',
-    dept: 'Leadership',
-    bio: 'Visionary leader with 15+ years in enterprise AI and distributed systems. Architected the Zero-State Core framework and leads MAH Quantum\'s strategic direction.',
+    id: 'nh',
+    name: 'Niroop H',
+    initials: 'NH',
     gradient: 'from-[#00B4FF] to-[#0070CC]',
-    expertise: ['Strategic Vision', 'Enterprise AI', 'System Architecture'],
+    glow: 'rgba(0,180,255,0.22)',
+    border: 'rgba(0,180,255,0.35)',
   },
   {
-    id: 'cto',
-    initials: 'RK',
-    name: 'R. Kumar',
-    role: 'Chief Technology Officer',
-    dept: 'Technology',
-    bio: 'Expert in large-scale AI architecture and cloud-native deployment. Leads the engineering of the Quantum Brain\'s core infrastructure and production systems.',
+    id: 'mn',
+    name: 'Mounashree N',
+    initials: 'MN',
+    gradient: 'from-[#FF00A0] to-[#CC007A]',
+    glow: 'rgba(255,0,160,0.20)',
+    border: 'rgba(255,0,160,0.32)',
+  },
+  {
+    id: 'hm',
+    name: 'Huchahanumaiah M',
+    initials: 'HM',
     gradient: 'from-[#7C3AED] to-[#4C1D95]',
-    expertise: ['AI Architecture', 'Cloud Infrastructure', 'Production Systems'],
-  },
-  {
-    id: 'research',
-    initials: 'JC',
-    name: 'Dr. J. Chen',
-    role: 'Head of AI Research',
-    dept: 'Research',
-    bio: 'Specializing in multi-modal learning systems and cognitive architectures. Drives the D25@1007 benchmarking framework and reasoning engine development.',
-    gradient: 'from-[#EC4899] to-[#BE185D]',
-    expertise: ['Deep Learning', 'Cognitive Systems', 'D25@1007 Framework'],
-  },
-  {
-    id: 'architect',
-    initials: 'SA',
-    name: 'S. Al-Ibrahim',
-    role: 'Lead Systems Architect',
-    dept: 'Engineering',
-    bio: 'Core architect of the Quantum [-0-] Brain infrastructure layers. Specializes in distributed system design and high-performance AI pipeline engineering.',
-    gradient: 'from-[#0EA5E9] to-[#0284C7]',
-    expertise: ['Distributed Systems', 'Pipeline Engineering', 'AI Infrastructure'],
-  },
-  {
-    id: 'bizdev',
-    initials: 'MV',
-    name: 'M. Voss',
-    role: 'VP Business Development',
-    dept: 'Business',
-    bio: 'Drives strategic partnerships across manufacturing, healthcare, logistics, and energy sectors. 12+ years of enterprise technology sales and partnership experience.',
-    gradient: 'from-[#F59E0B] to-[#D97706]',
-    expertise: ['Enterprise Partnerships', 'Market Strategy', 'Industry Relations'],
-  },
-  {
-    id: 'product',
-    initials: 'AP',
-    name: 'A. Patel',
-    role: 'Product & Solutions Director',
-    dept: 'Product',
-    bio: 'Drives the integration of Quantum Brain solutions with enterprise workflows. Ensures every deployment translates directly into measurable operational outcomes.',
-    gradient: 'from-[#10B981] to-[#059669]',
-    expertise: ['Product Strategy', 'Solution Design', 'Enterprise Delivery'],
+    glow: 'rgba(124,58,237,0.20)',
+    border: 'rgba(124,58,237,0.32)',
   },
 ];
 
-const deptColors = {
-  Leadership: { bg: 'bg-[#00B4FF]/10', text: 'text-[#0070CC]', border: 'border-[#00B4FF]/20' },
-  Technology: { bg: 'bg-[#7C3AED]/10', text: 'text-[#7C3AED]', border: 'border-[#7C3AED]/20' },
-  Research: { bg: 'bg-[#EC4899]/10', text: 'text-[#EC4899]', border: 'border-[#EC4899]/20' },
-  Engineering: { bg: 'bg-[#0EA5E9]/10', text: 'text-[#0EA5E9]', border: 'border-[#0EA5E9]/20' },
-  Business: { bg: 'bg-[#F59E0B]/10', text: 'text-[#D97706]', border: 'border-[#F59E0B]/20' },
-  Product: { bg: 'bg-[#10B981]/10', text: 'text-[#059669]', border: 'border-[#10B981]/20' },
-};
+const coreMembers = [
+  { id: 'qc-1', name: 'Core Engineer I',   role: 'Advanced R&D' },
+  { id: 'qc-2', name: 'Core Engineer II',  role: 'AI Systems Research' },
+  { id: 'qc-3', name: 'Core Engineer III', role: 'Quantum Architecture' },
+  { id: 'qc-4', name: 'Core Engineer IV',  role: 'Cognitive Systems' },
+];
+
+const quantaMembers = [
+  { id: 'qt-1',  name: 'Engineer I',   role: 'R&D' },
+  { id: 'qt-2',  name: 'Engineer II',  role: 'R&D' },
+  { id: 'qt-3',  name: 'Engineer III', role: 'R&D' },
+  { id: 'qt-4',  name: 'Engineer IV',  role: 'R&D' },
+  { id: 'qt-5',  name: 'Engineer V',   role: 'R&D' },
+  { id: 'qt-6',  name: 'Engineer VI',  role: 'R&D' },
+];
+
+/* ── COMPONENTS ────────────────────────────────────────────────────────────── */
+
+function DirectorCard({ d, index }) {
+  return (
+    <motion.div
+      {...fadeUp}
+      transition={{ delay: index * 0.12, duration: 0.65 }}
+      data-testid={`director-card-${d.id}`}
+      className="relative flex flex-col items-center text-center p-8 rounded-2xl bg-white/55 backdrop-blur-xl"
+      style={{
+        border: `1.5px solid ${d.border}`,
+        boxShadow: `0 8px 40px ${d.glow}, 0 2px 12px rgba(0,0,0,0.04)`,
+      }}
+    >
+      {/* Top gradient line */}
+      <div
+        className="absolute top-0 left-8 right-8 h-[2px] rounded-full"
+        style={{ background: `linear-gradient(90deg, transparent, ${d.border}, transparent)` }}
+      />
+
+      {/* Crown badge */}
+      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+        <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full text-[10px] font-bold tracking-widest uppercase bg-white border font-ibm" style={{ borderColor: d.border, color: d.gradient.includes('00B4FF') ? '#0070CC' : d.gradient.includes('FF00A0') ? '#CC007A' : '#6D28D9' }}>
+          <Crown size={9} />
+          Board of Directors
+        </span>
+      </div>
+
+      {/* Avatar */}
+      <div
+        className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${d.gradient} flex items-center justify-center mt-4 mb-5 shadow-lg`}
+        style={{ boxShadow: `0 8px 24px ${d.glow}` }}
+      >
+        <span className="font-outfit font-bold text-2xl text-white tracking-wide">{d.initials}</span>
+      </div>
+
+      {/* Name */}
+      <h3 className="font-outfit font-bold text-xl text-slate-900 leading-tight tracking-tight">{d.name}</h3>
+      <p className="text-xs text-slate-400 mt-1 font-ibm tracking-widest uppercase">Director</p>
+    </motion.div>
+  );
+}
+
+function CoreCard({ m, index }) {
+  return (
+    <motion.div
+      {...fadeUp}
+      transition={{ delay: index * 0.08, duration: 0.5 }}
+      data-testid={`core-member-${m.id}`}
+      className="flex items-center gap-4 px-5 py-4 rounded-xl bg-white/50 backdrop-blur-md border border-slate-200/80 hover:border-[#00B4FF]/30 hover:shadow-[0_4px_20px_rgba(0,180,255,0.08)] transition-all duration-250"
+    >
+      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00B4FF]/15 to-[#FF00A0]/10 flex items-center justify-center flex-shrink-0">
+        <span className="font-outfit font-bold text-xs text-[#00B4FF]">{m.name.charAt(0)}{m.name.split(' ')[1]?.charAt(0)}</span>
+      </div>
+      <div className="min-w-0">
+        <p className="font-outfit font-semibold text-sm text-slate-800 truncate">{m.name}</p>
+        <p className="text-xs text-slate-400 font-ibm">{m.role}</p>
+      </div>
+    </motion.div>
+  );
+}
+
+/* ── PAGE ──────────────────────────────────────────────────────────────────── */
 
 export default function Team() {
   return (
     <div className="bg-[#F8FAFC]">
-      {/* Header */}
-      <section className="relative pt-20 pb-20 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] orb-blue pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] orb-pink pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <motion.div initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="max-w-3xl">
-            <span className="chip-blue mb-4 inline-block">Our Team</span>
-            <h1 className="font-outfit font-bold text-5xl sm:text-6xl text-slate-900 leading-tight mb-6">
-              The Minds Behind <span className="text-gradient">MAH Quantum</span>
+
+      {/* ── HEADER ─────────────────────────────────────────────────────────── */}
+      <section className="relative pt-20 pb-16 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[480px] h-[480px] orb-blue pointer-events-none opacity-60" />
+        <div className="absolute bottom-0 left-0 w-[360px] h-[360px] orb-pink pointer-events-none opacity-50" />
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+          <motion.div {...fadeUp} transition={{ duration: 0.7 }}>
+            <span className="chip-blue mb-4 inline-block">Our People</span>
+            <h1 className="font-outfit font-bold text-5xl sm:text-6xl text-slate-900 leading-tight mb-5 tracking-tight">
+              The Team Behind <span className="text-gradient">MAH Quantum</span>
             </h1>
-            <p className="text-slate-600 text-lg leading-relaxed font-ibm">
-              A multidisciplinary team of AI researchers, systems engineers, and enterprise strategists united by a mission to build the intelligence infrastructure of tomorrow.
+            <p className="text-slate-500 text-base leading-relaxed max-w-xl font-ibm">
+              A structured organisation of directors, advanced researchers, and engineering talent — unified by a single mission.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Team Grid */}
-      <section className="pb-24">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {team.map((member, i) => {
-              const dc = deptColors[member.dept];
-              return (
-                <motion.div
-                  key={member.id}
-                  {...fadeUp}
-                  transition={{ delay: i * 0.1, duration: 0.6 }}
-                  data-testid={`team-member-${member.id}`}
-                  className="card-glass p-8 flex flex-col"
-                >
-                  {/* Avatar */}
-                  <div className="flex items-start justify-between mb-6">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${member.gradient} flex items-center justify-center shadow-lg`}>
-                      <span className="font-outfit font-bold text-xl text-white">{member.initials}</span>
-                    </div>
-                    <div className="flex gap-2">
-                      <a href="#" data-testid={`team-linkedin-${member.id}`} className="p-2 rounded-lg bg-slate-100 hover:bg-[#00B4FF]/10 hover:text-[#00B4FF] transition-all duration-200 text-slate-500">
-                        <Linkedin size={14} />
-                      </a>
-                      <a href="#" data-testid={`team-twitter-${member.id}`} className="p-2 rounded-lg bg-slate-100 hover:bg-[#00B4FF]/10 hover:text-[#00B4FF] transition-all duration-200 text-slate-500">
-                        <Twitter size={14} />
-                      </a>
-                    </div>
-                  </div>
+      {/* ── BOARD OF DIRECTORS ─────────────────────────────────────────────── */}
+      <section className="pb-20">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
 
-                  {/* Info */}
-                  <div className="mb-4">
-                    <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium border ${dc.bg} ${dc.text} ${dc.border} mb-2 font-ibm`}>
-                      {member.dept}
-                    </span>
-                    <h3 className="font-outfit font-bold text-xl text-slate-900">{member.name}</h3>
-                    <p className="text-sm font-medium text-slate-500 font-ibm">{member.role}</p>
-                  </div>
+          {/* Section label */}
+          <motion.div {...fadeIn} transition={{ duration: 0.5 }} className="flex items-center gap-4 mb-10">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+            <span className="font-outfit font-bold text-xs tracking-[0.2em] uppercase text-slate-400 px-3">Board of Directors</span>
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+          </motion.div>
 
-                  <p className="text-slate-500 text-sm leading-relaxed flex-1 mb-5 font-ibm">{member.bio}</p>
-
-                  {/* Expertise tags */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {member.expertise.map((exp) => (
-                      <span key={exp} className="px-2.5 py-1 rounded-full text-xs bg-white/70 border border-slate-200 text-slate-600 font-ibm">
-                        {exp}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              );
-            })}
+          {/* 3 Director Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            {directors.map((d, i) => (
+              <DirectorCard key={d.id} d={d} index={i} />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Join Team CTA */}
+      {/* ── QUANTUM CORE DIVISION ──────────────────────────────────────────── */}
+      <section className="py-16 bg-white border-y border-slate-100">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+
+          {/* Section label */}
+          <motion.div {...fadeIn} transition={{ duration: 0.5 }} className="mb-8">
+            <div className="flex items-center gap-3 mb-1">
+              <span className="w-2 h-2 rounded-full bg-gradient-to-br from-[#00B4FF] to-[#FF00A0]" />
+              <span className="font-outfit font-bold text-xs tracking-[0.18em] uppercase text-[#00B4FF]">Advanced R&amp;D</span>
+            </div>
+            <h2 className="font-outfit font-bold text-2xl text-slate-900 tracking-tight">Quantum Core Division</h2>
+            <p className="text-slate-400 text-sm font-ibm mt-1">Deep systems research and cognitive architecture engineering</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3" data-testid="quantum-core-section">
+            {coreMembers.map((m, i) => (
+              <CoreCard key={m.id} m={m} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── TEAM QUANTA ────────────────────────────────────────────────────── */}
+      <section className="py-16">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+
+          {/* Section label */}
+          <motion.div {...fadeIn} transition={{ duration: 0.5 }} className="mb-8">
+            <div className="flex items-center gap-3 mb-1">
+              <span className="w-2 h-2 rounded-full bg-slate-300" />
+              <span className="font-outfit font-bold text-xs tracking-[0.18em] uppercase text-slate-400">R&amp;D Engineers</span>
+            </div>
+            <h2 className="font-outfit font-bold text-2xl text-slate-900 tracking-tight">Team Quanta</h2>
+            <p className="text-slate-400 text-sm font-ibm mt-1">Research and development engineering team</p>
+          </motion.div>
+
+          {/* Minimal list grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2" data-testid="team-quanta-section">
+            {quantaMembers.map((m, i) => (
+              <motion.div
+                key={m.id}
+                {...fadeIn}
+                transition={{ delay: i * 0.06, duration: 0.4 }}
+                data-testid={`quanta-member-${m.id}`}
+                className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors duration-200 group"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-[#00B4FF] transition-colors flex-shrink-0" />
+                <div className="min-w-0">
+                  <span className="font-ibm text-sm text-slate-700 font-medium">{m.name}</span>
+                  <span className="text-slate-400 text-xs ml-2 font-ibm">{m.role}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── HIERARCHY NOTE ─────────────────────────────────────────────────── */}
+      <section className="py-12 bg-white border-t border-slate-100">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+          <motion.div {...fadeIn} transition={{ duration: 0.5 }} className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0 text-xs font-ibm text-slate-400">
+            <span className="font-semibold text-slate-600">Board of Directors</span>
+            <span className="hidden sm:block mx-3 text-slate-200">—</span>
+            <span className="sm:hidden text-slate-200">|</span>
+            <span>Quantum Core Division</span>
+            <span className="hidden sm:block mx-3 text-slate-200">—</span>
+            <span className="sm:hidden text-slate-200">|</span>
+            <span>Team Quanta</span>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── CTA ────────────────────────────────────────────────────────────── */}
       <section className="py-20 section-alt">
-        <div className="max-w-3xl mx-auto px-6 text-center">
+        <div className="max-w-2xl mx-auto px-6 text-center">
           <motion.div {...fadeUp} transition={{ duration: 0.6 }}>
-            <h2 className="font-outfit font-bold text-4xl text-slate-900 mb-4">
+            <h2 className="font-outfit font-bold text-3xl text-slate-900 mb-4">
               Join the <span className="text-gradient">Mission</span>
             </h2>
-            <p className="text-slate-500 text-base mb-8 font-ibm">
-              MAH Quantum is building the future of enterprise AI. We're always looking for exceptional engineers, researchers, and strategists.
+            <p className="text-slate-500 text-sm mb-8 font-ibm">
+              MAH Quantum is building the intelligence infrastructure of tomorrow. We're always looking for exceptional talent.
             </p>
             <Link to="/contact" data-testid="team-contact-cta" className="btn-primary inline-flex items-center gap-2">
               Get in Touch <ArrowRight size={16} />
@@ -167,6 +243,7 @@ export default function Team() {
           </motion.div>
         </div>
       </section>
+
     </div>
   );
 }
