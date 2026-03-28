@@ -10,15 +10,6 @@ const values = [
   { icon: Shield, title: 'Approach', text: 'AI is not an add-on feature but a foundational component embedded within enterprise systems, ensuring scalability, interoperability, and long-term adaptability.', color: '#FF00A0' },
 ];
 
-const timeline = [
-  { year: '2020', title: 'Founded', desc: 'MAH Quantum established with a vision to engineer intelligent enterprise systems.' },
-  { year: '2021', title: 'Zero-State Core', desc: 'Development of the domain-agnostic intelligence foundation begins.' },
-  { year: '2022', title: 'Industry Deployments', desc: 'First production deployments in manufacturing and logistics sectors.' },
-  { year: '2023', title: 'Quantum Brain v1', desc: 'The 5-layer cognitive architecture reaches production maturity.' },
-  { year: '2024', title: 'D25@1007 Framework', desc: 'Internal benchmarking framework established for measuring intelligence depth.' },
-  { year: '2025', title: 'Global Expansion', desc: 'Scaling across healthcare, energy, and enterprise infrastructure sectors.' },
-];
-
 const coreAreas = [
   { icon: Layers, title: 'AI System Architecture', desc: 'Designing and deploying production-ready AI systems that integrate with business workflows.' },
   { icon: Zap, title: 'Enterprise Infrastructure', desc: 'Backend infrastructure, distributed data pipelines, and API orchestration frameworks.' },
@@ -132,32 +123,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-24">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
-          <motion.div {...fadeUp} transition={{ duration: 0.6 }} className="text-center mb-16">
-            <span className="chip-blue mb-3 inline-block">Our Journey</span>
-            <h2 className="font-outfit font-bold text-4xl text-slate-900">Building the Future of AI</h2>
-          </motion.div>
-          <div className="relative">
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-[#00B4FF] to-[#FF00A0]" />
-            <div className="space-y-8">
-              {timeline.map((item, i) => (
-                <motion.div key={item.year} {...fadeUp} transition={{ delay: i * 0.1, duration: 0.5 }} className="flex gap-8 pl-14 relative">
-                  <div className="absolute left-0 w-12 h-12 rounded-full card-glass border border-[#00B4FF]/30 flex items-center justify-center shadow-[0_0_12px_rgba(0,180,255,0.15)]">
-                    <span className="font-outfit font-bold text-xs text-[#00B4FF]">{item.year.slice(2)}</span>
-                  </div>
-                  <div className="pt-2">
-                    <span className="text-xs text-[#00B4FF] font-semibold font-ibm">{item.year}</span>
-                    <h4 className="font-outfit font-semibold text-lg text-slate-900 mt-0.5 mb-1">{item.title}</h4>
-                    <p className="text-slate-500 text-sm font-ibm">{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
