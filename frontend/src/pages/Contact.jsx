@@ -17,9 +17,24 @@ const industries = [
 ];
 
 const contactInfo = [
-{ icon: Mail, label: 'Email Us', value: '[nirooph@mahquantum.tech](mailto:nirooph@mahquantum.tech)', href: 'mailto:nirooph@mahquantum.tech' },
-{ icon: Globe, label: 'Company', value: 'MAH Quantum', href: '#' },
-{ icon: Building2, label: 'Focus', value: 'Enterprise AI & IT Systems', href: '#' },
+{
+icon: Mail,
+label: 'Email Us',
+value: 'nirooph@mahquantum.tech',
+href: 'mailto:nirooph@mahquantum.tech'
+},
+{
+icon: Globe,
+label: 'Company',
+value: 'MAH Quantum',
+href: '#'
+},
+{
+icon: Building2,
+label: 'Focus',
+value: 'Enterprise AI & IT Systems',
+href: '#'
+},
 ];
 
 export default function Contact() {
@@ -27,7 +42,6 @@ const [submitted, setSubmitted] = useState(false);
 
 return ( <div className="bg-[#F8FAFC]">
 
-```
   {/* Header */}
   <section className="relative pt-20 pb-16 overflow-hidden">
     <div className="absolute top-0 right-0 w-[500px] h-[500px] orb-blue pointer-events-none" />
@@ -83,7 +97,7 @@ return ( <div className="bg-[#F8FAFC]">
             </div>
           ) : (
             <form
-              action="https://formspree.io/f/YOUR_ID_HERE"
+              action="https://formspree.io/f/xlgogwqb"
               method="POST"
               onSubmit={() => setSubmitted(true)}
               className="card-glass p-8 space-y-6"
@@ -100,13 +114,16 @@ return ( <div className="bg-[#F8FAFC]">
                 <input name="company" required placeholder="Company" className="input-style" />
                 <select name="industry" required className="input-style">
                   <option value="">Select Industry</option>
-                  {industries.map((i) => <option key={i}>{i}</option>)}
+                  {industries.map((i) => (
+                    <option key={i} value={i}>{i}</option>
+                  ))}
                 </select>
               </div>
 
               {/* Message */}
               <textarea name="message" required rows={5} placeholder="Your message..." className="input-style" />
 
+              {/* Submit */}
               <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2">
                 <Send size={16} />
                 Send Message
@@ -116,11 +133,11 @@ return ( <div className="bg-[#F8FAFC]">
           )}
 
         </motion.div>
+
       </div>
     </div>
   </section>
-</div>
-```
 
+</div>
 );
 }
