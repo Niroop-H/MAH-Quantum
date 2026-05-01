@@ -6,7 +6,7 @@ const fadeUp = { initial: { opacity: 0, y: 32 }, whileInView: { opacity: 1, y: 0
 
 const values = [
   { icon: Target, title: 'Mission', text: 'To enable organizations worldwide to transition from reactive processes to adaptive, autonomous, and continuously evolving operational systems.', color: '#00B4FF' },
-  { icon: Globe, title: 'Vision', text: 'To establish a foundational intelligence layer for modern industries—where intelligent systems are embedded as core operational infrastructure.', color: '#8B5CF6' },
+  { icon: Globe, title: 'Vision', text: 'To establish a foundational intelligence layer for modern industries, where intelligent systems are embedded as core operational infrastructure.', color: '#8B5CF6' },
   { icon: Shield, title: 'Approach', text: 'AI is not an add-on feature but a foundational component embedded within enterprise systems, ensuring scalability, interoperability, and long-term adaptability.', color: '#FF00A0' },
 ];
 
@@ -71,7 +71,7 @@ export default function About() {
                 Rather than developing isolated tools, MAH Quantum delivers integrated intelligence systems that function as core operational layers within organizations, supporting complex workflows across diverse domains.
               </p>
               <p className="text-slate-600 text-base leading-relaxed font-ibm">
-                In parallel, we are actively developing a large-scale AI environment and integrated tool ecosystem within the broader IT landscape — including backend infrastructure, distributed data pipelines, API orchestration frameworks, model routing systems, and deployment architectures.
+                In parallel, we are actively developing a large-scale AI environment and integrated tool ecosystem within the broader IT landscape, including backend infrastructure, distributed data pipelines, API orchestration frameworks, model routing systems, and deployment architectures.
               </p>
             </motion.div>
 
