@@ -91,7 +91,7 @@ const orgSchema = {
   "foundingDate": "2023",
   "founder": { "@type": "Person", "name": "Niroop H" },
   "description": "MAH Quantum is an advanced AI and IT company that offers a unique internship model where students independently research, get verified by industry standards, and build real-world projects — developing critical thinking, problem-solving, and execution skills that universities do not provide.",
-  "address": { "@type": "PostalAddress", "addressLocality": "Bangalore Urban", "addressRegion": "Karnataka", "addressCountry": "IN" },
+  "address": { "@type": "PostalAddress", "streetAddress": "#22/21, Maramma Temple Road, Mysore Road Avalahalli", "addressLocality": "Bengaluru", "addressRegion": "Karnataka", "postalCode": "560026", "addressCountry": "IN" },
   "sameAs": ["https://www.linkedin.com/in/niroop-h"]
 };
 
@@ -175,7 +175,7 @@ export default function About() {
               MAH Quantum is an advanced artificial intelligence and information technology company focused on engineering intelligent systems that operate seamlessly within real-world environments.
             </p>
             <p className="text-slate-500 text-base leading-relaxed font-ibm mt-4">
-              Founded in 2023, with execution initiated on October 25, 2025, MAH Quantum is based in Bangalore Urban, Karnataka, India. The organization operates across multiple sectors including artificial intelligence, system architecture, enterprise infrastructure, and applied research.
+              Founded in 2023, with execution initiated on October 25, 2025, MAH Quantum is based at #22/21, Maramma Temple Road, Mysore Road Avalahalli, Bengaluru – 560026, Karnataka, India. The organization operates across multiple sectors including artificial intelligence, system architecture, enterprise infrastructure, and applied research.
             </p>
           </motion.div>
         </div>
