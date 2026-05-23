@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
-import { Mail, Building2, Globe, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Building2, Globe, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const fadeUp = { initial: { opacity: 0, y: 32 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
@@ -20,6 +20,7 @@ const industries = [
 
 const contactInfo = [
   { icon: Mail, label: 'Email Us', value: 'nirooph@mahquantum.tech', href: 'mailto:nirooph@mahquantum.tech' },
+  { icon: MapPin, label: 'Office Address', value: '#22/21, Maramma Temple Road, Mysore Road Avalahalli, Bengaluru – 560026', href: '#' },
   { icon: Globe, label: 'Company', value: 'MAH Quantum', href: '#' },
   { icon: Building2, label: 'Focus', value: 'Enterprise AI & IT Systems', href: '#' },
 ];
