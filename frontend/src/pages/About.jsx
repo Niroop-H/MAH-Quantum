@@ -30,13 +30,6 @@ const platforms = [
   { icon: Briefcase, title: 'Quanta Industries', desc: 'Business and strategic collaboration division facilitating partnerships, enterprise discussions, and industry engagement.', color: '#FF00A0' },
 ];
 
-const applications = [
-  { icon: Factory, title: 'Manufacturing', desc: 'Process optimization and predictive intelligence for industrial workflows.', color: '#00B4FF' },
-  { icon: Truck, title: 'Logistics', desc: 'Intelligent routing and operational efficiency across supply chains.', color: '#8B5CF6' },
-  { icon: HeartPulse, title: 'Healthcare', desc: 'Data-driven decision systems for clinical and operational environments.', color: '#FF00A0' },
-  { icon: Building2, title: 'Enterprise Systems', desc: 'Workflow automation and infrastructure intelligence for large-scale organizations.', color: '#00C9A7' },
-];
-
 const earnedSteps = [
   {
     number: '01',
