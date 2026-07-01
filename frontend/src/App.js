@@ -11,6 +11,8 @@ import Industries from './pages/Industries';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Sectors from './pages/Sectors';
+import DSIndustries from './pages/DSIndustries';
+import QuantaIndustries from './pages/QuantaIndustries';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -29,9 +31,11 @@ function Layout() {
           <Route path="/architecture" element={<Architecture />} />
           <Route path="/d25" element={<D25 />} />
           <Route path="/industries" element={<Industries />} />
+          <Route path="/industries/ds-industries" element={<DSIndustries />} />
+          <Route path="/industries/quanta-industries" element={<QuantaIndustries />} />
+          <Route path="/sectors" element={<Sectors />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/sectors" element={<Sectors />} />
         </Routes>
       </main>
       <Footer />
