@@ -10,6 +10,7 @@ import D25 from './pages/D25';
 import Industries from './pages/Industries';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import Sectors from './pages/Sectors';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,6 +31,7 @@ function Layout() {
           <Route path="/industries" element={<Industries />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/sectors" element={<Sectors />} />
         </Routes>
       </main>
       <Footer />
