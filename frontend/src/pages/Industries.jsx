@@ -54,11 +54,11 @@ export default function Industries() {
                 data-testid={`division-card-${d.id}`}
               >
                 <Link to={d.to} className="card-glass overflow-hidden group flex flex-col h-full">
-                  <div className="relative h-48 overflow-hidden bg-slate-900 flex items-center justify-center">
+                  <div className="relative h-48 overflow-hidden bg-slate-900 flex items-center justify-center p-8">
                     <img
                       src={d.image}
                       alt={d.name}
-                      className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="max-h-full max-w-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                   <div className="p-8 flex flex-col flex-1">
