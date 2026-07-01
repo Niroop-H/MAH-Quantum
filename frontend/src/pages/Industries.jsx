@@ -58,7 +58,7 @@ export default function Industries() {
                     <img
                       src={d.image}
                       alt={d.name}
-                      className="max-h-full max-w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                   <div className="p-8 flex flex-col flex-1">
