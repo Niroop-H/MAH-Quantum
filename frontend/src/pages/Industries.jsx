@@ -54,12 +54,14 @@ export default function Industries() {
                 data-testid={`division-card-${d.id}`}
               >
                 <Link to={d.to} className="card-glass overflow-hidden group flex flex-col h-full">
-                  <div className="relative h-48 overflow-hidden bg-slate-900 flex items-center justify-center p-8">
-                    <img
-                      src={d.image}
-                      alt={d.name}
-                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-700"
-                    />
+                  <div className="p-8 pb-0 flex justify-center">
+                    <div className="w-40 h-40 rounded-xl overflow-hidden bg-slate-900 flex items-center justify-center p-4 border border-slate-200">
+                      <img
+                        src={d.image}
+                        alt={d.name}
+                        className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-700"
+                      />
+                    </div>
                   </div>
                   <div className="p-8 flex flex-col flex-1">
                     <div className="text-xs font-semibold font-ibm text-[#00B4FF] mb-2">{d.tagline}</div>
