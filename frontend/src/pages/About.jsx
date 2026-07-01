@@ -398,35 +398,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Applications */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <motion.div {...fadeUp} transition={{ duration: 0.7 }} className="max-w-2xl mb-14">
-            <span className="chip-blue mb-4 inline-block">Applications</span>
-            <h2 className="font-outfit font-bold text-4xl sm:text-5xl text-slate-900 mb-4">
-              Real-World <span className="text-gradient">Deployment</span>
-            </h2>
-            <p className="text-slate-500 text-base leading-relaxed font-ibm">
-              MAH Quantum systems are designed for real-world deployment across industries, reducing inefficiencies, improving operational visibility, and enabling adaptive, data-driven decision-making.
-            </p>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {applications.map((app, i) => {
-              const Icon = app.icon;
-              return (
-                <motion.div key={app.title} {...fadeUp} transition={{ delay: i * 0.1, duration: 0.6 }} className="card-glass p-6">
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: `${app.color}18` }}>
-                    <Icon size={20} style={{ color: app.color }} />
-                  </div>
-                  <h4 className="font-outfit font-semibold text-slate-900 text-base mb-2">{app.title}</h4>
-                  <p className="text-slate-500 text-xs leading-relaxed font-ibm">{app.desc}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Zero-State Core */}
       <section className="py-24 bg-slate-900 relative overflow-hidden">
         <div className="absolute inset-0">
