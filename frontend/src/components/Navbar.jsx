@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Magnetic } from './Interactive';
 
 const LOGO = '/logo.jpeg';
 
@@ -20,6 +22,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -38,11 +41,14 @@ export default function Navbar() {
 
             {/* Logo */}
             <Link to="/" data-testid="nav-logo" className="flex items-center gap-2.5 group">
-              <img
-                src={LOGO}
-                alt="MAH Quantum"
-                className="w-9 h-9 rounded-full object-cover shadow-[0_0_12px_rgba(0,180,255,0.35)] group-hover:shadow-[0_0_20px_rgba(0,180,255,0.5)] transition-shadow duration-300"
-              />
+              <span className="relative flex items-center justify-center">
+                <span className="absolute inset-0 rounded-full bg-[#00B4FF]/40 animate-pulse-ring" />
+                <img
+                  src={LOGO}
+                  alt="MAH Quantum"
+                  className="relative w-9 h-9 rounded-full object-cover shadow-[0_0_12px_rgba(0,180,255,0.35)] group-hover:shadow-[0_0_20px_rgba(0,180,255,0.5)] transition-shadow duration-300"
+                />
+              </span>
               <span className="font-outfit font-bold text-lg text-slate-900 tracking-tight hidden sm:block">
                 MAH <span className="text-gradient">Quantum</span>
               </span>
@@ -50,31 +56,43 @@ export default function Navbar() {
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  data-testid={`nav-link-${link.label.toLowerCase().replace('@', '').replace('/', '')}`}
-                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    location.pathname === link.to
-                      ? 'text-[#00B4FF] bg-[#00B4FF]/8'
-                      : 'text-slate-600 hover:text-[#00B4FF] hover:bg-[#00B4FF]/5'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const active = location.pathname === link.to;
+                return (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    data-testid={`nav-link-${link.label.toLowerCase().replace('@', '').replace('/', '')}`}
+                    className={`relative px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                      active ? 'text-[#00B4FF]' : 'text-slate-600 hover:text-[#00B4FF]'
+                    }`}
+                  >
+                    {active && (
+                      <motion.span
+                        layoutId="nav-active-pill"
+                        className="absolute inset-0 rounded-lg bg-[#00B4FF]/8"
+                        transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                      />
+                    )}
+                    <span className="relative z-10">{link.label}</span>
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* CTA + Mobile toggle */}
             <div className="flex items-center gap-3">
-              <Link
-                to="/contact"
-                data-testid="nav-contact-btn"
-                className="hidden sm:inline-flex px-4 py-2 rounded-lg btn-primary text-sm"
-              >
-                Contact Us
-              </Link>
+              <div className="hidden sm:block">
+                <Magnetic strength={8}>
+                  <Link
+                    to="/contact"
+                    data-testid="nav-contact-btn"
+                    className="inline-flex px-4 py-2 rounded-lg btn-primary text-sm"
+                  >
+                    Contact Us
+                  </Link>
+                </Magnetic>
+              </div>
               <button
                 data-testid="nav-mobile-toggle"
                 onClick={() => setOpen(!open)}
