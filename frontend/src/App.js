@@ -1,6 +1,7 @@
 import '@/App.css';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import SmoothScroll from './components/SmoothScroll';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -23,6 +24,7 @@ function ScrollToTop() {
 function Layout() {
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
+      <div className="grain-overlay" aria-hidden="true" />
       <Navbar />
       <main className="flex-1 pt-16">
         <Routes>
@@ -46,8 +48,10 @@ function Layout() {
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <Layout />
+      <SmoothScroll>
+        <ScrollToTop />
+        <Layout />
+      </SmoothScroll>
     </BrowserRouter>
   );
 }
