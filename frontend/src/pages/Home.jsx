@@ -44,7 +44,7 @@ const sectors = [
 const credentials = [
   ['SAM.gov', 'Active registration · Federal Assistance Awards Only'],
   ['MSME', 'Government-registered enterprise in India'],
-  ['Research', 'MAH Quantum Research Institute'],
+  ['Research', 'MAH Quantum™ Research Institute'],
   ['International', 'Technology and research ecosystem participation'],
 ];
 
@@ -69,7 +69,7 @@ export default function Home() {
             </h1>
 
             <p className="hero-lede">
-              MAH Quantum develops intelligent systems, semiconductor
+              MAH Quantum™ develops intelligent systems, semiconductor
               initiatives and applied research programs built around
               disciplined engineering rather than presentation alone.
             </p>
@@ -94,17 +94,17 @@ export default function Home() {
 
           <div
             className="hero-dossier"
-            aria-label="MAH Quantum institutional profile"
+            aria-label="MAH Quantum™ institutional profile"
           >
             <div className="dossier-top">
               <span>INSTITUTIONAL PROFILE</span>
               <span>2026 / 27</span>
             </div>
 
-            <img className="dossier-mark" src="/logo.jpeg?v=20261110" alt="MAH Quantum emblem" />
+            <img className="dossier-mark" src="/logo.jpeg?v=20261110" alt="MAH Quantum™ emblem" />
 
             <div className="dossier-title">
-              MAH QUANTUM™
+              MAH QUANTUM<sup className="brand-trademark">™</sup>
             </div>
 
             <p>
@@ -115,7 +115,7 @@ export default function Home() {
 
               <div>
                 <span>Entity</span>
-                <strong>MAH Quantum</strong>
+                <strong>MAH Quantum<sup className="brand-trademark">™</sup></strong>
               </div>
 
               <div>
@@ -467,7 +467,7 @@ export default function Home() {
             </h2>
 
             <p className="body-copy">
-              MAH Quantum supports structured research, technical
+              MAH Quantum™ supports structured research, technical
               publication, semiconductor education and experimental
               systems development through its research and industry
               programs.
@@ -477,7 +477,7 @@ export default function Home() {
               className="text-link dark-link"
               to="/about"
             >
-              Learn about MAH Quantum
+              Learn about MAH Quantum™
               <ArrowUpRight size={16} />
             </Link>
 
@@ -516,7 +516,7 @@ export default function Home() {
               className="button button-dark"
               to="/contact"
             >
-              Contact MAH Quantum
+              Contact MAH Quantum™
               <Mail size={16} />
             </Link>
 
