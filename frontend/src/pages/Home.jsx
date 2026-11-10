@@ -60,18 +60,15 @@ export default function Home() {
 
           <div className="hero-copy">
             <p className="kicker">
-              MAH QUANTUM™ · EST. 2023
+              ENGINEERING &amp; RESEARCH · BENGALURU, INDIA
             </p>
 
-            <h1>
-              Engineering systems for the{' '}
-              <em>next</em> generation of technology.
+            <h1 className="hero-brand-title">
+              MAH Quantum<sup className="brand-trademark">™</sup>
             </h1>
 
             <p className="hero-lede">
-              MAH Quantum™ develops intelligent systems, semiconductor
-              initiatives and applied research programs built around
-              disciplined engineering rather than presentation alone.
+              Intelligent systems. Semiconductor engineering. Applied research.
             </p>
 
             <div className="hero-actions">
@@ -88,7 +85,7 @@ export default function Home() {
 
             <div className="hero-note">
               <span className="status-mark" />
-              Bengaluru, India · Research & Engineering
+              Founded 2023 · Bengaluru, India
             </div>
           </div>
 
