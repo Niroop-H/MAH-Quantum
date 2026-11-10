@@ -74,7 +74,7 @@ export default function Sectors() {
               Intelligence across sectors.
             </h1>
             <p className="text-slate-600 text-lg leading-relaxed font-ibm max-w-2xl">
-              MAH Quantum deploys the Quantum [-0-] Brain across five core sectors, addressing high-impact operational inefficiencies with production-ready AI systems.
+              MAH Quantum™ deploys the Quantum [-0-] Brain across five core sectors, addressing high-impact operational inefficiencies with production-ready AI systems.
             </p>
           </motion.div>
         </div>
@@ -123,7 +123,7 @@ export default function Sectors() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <motion.div {...fadeUp} transition={{ duration: 0.6 }}>
             <h2 className="font-outfit font-bold text-3xl mb-4" style={{ color: INK }}>Deploy AI in your sector.</h2>
-            <p className="text-slate-500 text-base mb-8 font-ibm">MAH Quantum designs custom intelligent systems that embed directly into your operational workflows.</p>
+            <p className="text-slate-500 text-base mb-8 font-ibm">MAH Quantum™ designs custom intelligent systems that embed directly into your operational workflows.</p>
             <Link
               to="/contact"
               data-testid="sectors-contact-cta"
