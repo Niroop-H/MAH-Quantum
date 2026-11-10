@@ -129,9 +129,8 @@ export default function ArchitectureCore() {
         const post = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 2.35, 12), metal);
         post.position.set(x, -0.47, z);
         assembly.add(post);
-        const collar = new THREE.Mesh(new THREE.TorusGeometry(0.075, 0.014, 6, 24), pink);
+        const collar = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.035, 16), pink);
         collar.position.set(x, -0.47, z);
-        collar.rotation.x = Math.PI / 2;
         assembly.add(collar);
       }
     }
