@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import IndustryShowcase from '../components/IndustryShowcase';
+import HomeKineticBackdrop from '../components/HomeKineticBackdrop';
 import {
   ArrowUpRight,
   ChevronRight,
@@ -55,6 +56,8 @@ export default function Home() {
 
       {/* HERO */}
       <section className="hero-section">
+        <HomeKineticBackdrop />
+        <div className="hero-atmosphere" aria-hidden="true" />
         <div className="hero-rule" />
 
         <div className="container hero-grid">
