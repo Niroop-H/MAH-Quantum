@@ -71,6 +71,15 @@
   font-weight: 800;
 }
 
+.brand-trademark {
+  display: inline-block;
+  margin-left: 2px;
+  font-size: .58em;
+  line-height: 0;
+  vertical-align: super;
+  letter-spacing: 0;
+}
+
 .desktop-nav {
   display: flex;
   align-items: center;
@@ -1059,6 +1068,15 @@
 
 .footer-wordmark span {
   color: #6d747d;
+}
+
+.footer-wordmark sup {
+  display: inline-block;
+  margin-left: 2px;
+  color: #6d747d;
+  font-size: .55em;
+  line-height: 0;
+  vertical-align: super;
 }
 
 .footer-brand p {
