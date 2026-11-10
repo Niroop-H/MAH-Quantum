@@ -39,7 +39,7 @@ export default function Footer() {
         <div className="footer-column">
           <h4>Technology</h4>
           <Link to="/architecture">Architecture</Link>
-          <Link to="/d25">D25@1007</Link>
+          <Link to="/d25">Projects</Link>
           <Link to="/industries">Industries</Link>
         </div>
 
