@@ -126,7 +126,7 @@ export default function Team() {
           <motion.div {...fadeUp} transition={{ duration: 0.7 }}>
             <span className="chip-blue mb-4 inline-block">Our People</span>
             <h1 className="font-outfit font-bold text-5xl sm:text-6xl text-slate-900 leading-tight mb-5 tracking-tight">
-              The Team Behind <span className="text-gradient">MAH Quantum</span>
+              The Team Behind <span className="text-gradient">MAH Quantum™</span>
             </h1>
             <p className="text-slate-500 text-base leading-relaxed max-w-xl font-ibm">
               A structured organisation of directors, advanced researchers, and engineering talent — unified by a single mission.
@@ -235,7 +235,7 @@ export default function Team() {
               Join the <span className="text-gradient">Mission</span>
             </h2>
             <p className="text-slate-500 text-sm mb-8 font-ibm">
-              MAH Quantum is building the intelligence infrastructure of tomorrow. We're always looking for exceptional talent.
+              MAH Quantum™ is building the intelligence infrastructure of tomorrow. We're always looking for exceptional talent.
             </p>
             <Link to="/contact" data-testid="team-contact-cta" className="btn-primary inline-flex items-center gap-2">
               Get in Touch <ArrowRight size={16} />
