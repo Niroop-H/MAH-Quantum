@@ -1466,8 +1466,7 @@ body {
 .footer-bottom, .hero-dossier, .record-card,
 .system-diagram, .capability-row, .mobile-nav,
 .card-glass, .glass, .glass-sm, .glass-nav,
-[class*="bg-white"], [class*="bg-gray-"],
-[class*="bg-slate-"], [class*="bg-zinc-"], [class*="bg-["] {
+[class*="bg-"] {
   background: var(--mq-black) !important;
   color: var(--mq-lime) !important;
 }
@@ -1498,6 +1497,21 @@ p, li, label, strong, small, span,
 .footer-brand p, .footer-column h4 {
   color: var(--mq-lime-soft) !important;
   opacity: .78;
+}
+
+/* Normalize Tailwind colour utilities so no legacy blue/white palette leaks through. */
+[class*="text-"] {
+  color: var(--mq-lime) !important;
+  -webkit-text-fill-color: var(--mq-lime) !important;
+  background-image: none !important;
+}
+.text-gradient {
+  color: var(--mq-pink) !important;
+  -webkit-text-fill-color: var(--mq-pink) !important;
+}
+a[class*="text-"] {
+  color: var(--mq-pink) !important;
+  -webkit-text-fill-color: var(--mq-pink) !important;
 }
 
 /* Pink is the secondary signature accent. */
