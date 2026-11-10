@@ -92,7 +92,7 @@ export default function Services() {
               AI Solutions Built for <span className="text-gradient">Real Environments</span>
             </h1>
             <p className="text-slate-600 text-lg leading-relaxed font-ibm">
-              From architecture design to production deployment, MAH Quantum delivers end-to-end intelligent systems that embed as foundational operational infrastructure.
+              From architecture design to production deployment, MAH Quantum™ delivers end-to-end intelligent systems that embed as foundational operational infrastructure.
             </p>
           </motion.div>
         </div>
