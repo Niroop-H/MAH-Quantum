@@ -1,217 +1,210 @@
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
+const vertexShader = `
+  varying vec2 vUv;
+  void main() {
+    vUv = uv;
+    gl_Position = vec4(position, 1.0);
+  }
+`;
+
+const fragmentShader = `
+  precision highp float;
+  varying vec2 vUv;
+  uniform float uTime;
+  uniform vec2 uResolution;
+  uniform vec2 uPointer;
+
+  float hash(vec2 p) {
+    p = fract(p * vec2(123.34, 456.21));
+    p += dot(p, p + 45.32);
+    return fract(p.x * p.y);
+  }
+
+  float noise(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    f = f * f * (3.0 - 2.0 * f);
+    return mix(
+      mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x),
+      mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x),
+      f.y
+    );
+  }
+
+  float fbm(vec2 p) {
+    float value = 0.0;
+    float amplitude = 0.5;
+    mat2 rotate = mat2(0.80, -0.60, 0.60, 0.80);
+    for (int i = 0; i < 5; i++) {
+      value += amplitude * noise(p);
+      p = rotate * p * 2.03 + 11.7;
+      amplitude *= 0.5;
+    }
+    return value;
+  }
+
+  float ribbon(float x, float center, float width, float softness) {
+    float d = abs(x - center);
+    return 1.0 - smoothstep(width, width + softness, d);
+  }
+
+  void main() {
+    vec2 uv = vUv;
+    vec2 p = (uv - 0.5) * vec2(uResolution.x / uResolution.y, 1.0);
+    float t = uTime;
+    vec2 pointer = uPointer * 0.12;
+
+    // Slow, large-scale fluid distortion. No particles, grids or mesh silhouettes.
+    float warpA = fbm(p * 1.45 + vec2(t * 0.035, -t * 0.022));
+    float warpB = fbm(p * 2.1 - vec2(t * 0.026, t * 0.031) + 4.0);
+    vec2 flow = vec2(warpA - 0.5, warpB - 0.5);
+    vec2 q = p + flow * 0.72 + pointer;
+
+    float bend1 = sin(q.x * 1.42 + t * 0.22 + fbm(q * 1.3) * 2.2) * 0.30;
+    float bend2 = sin(q.x * 2.05 - t * 0.16 + fbm(q * 2.0 + 8.0) * 1.6) * 0.19;
+    float bend3 = cos(q.x * 0.82 + t * 0.12 + fbm(q * 1.1 + 15.0) * 2.0) * 0.36;
+
+    float field1 = q.y - bend1 - 0.17;
+    float field2 = q.y - bend2 + 0.31;
+    float field3 = q.y - bend3 - 0.02;
+
+    float silk1 = ribbon(field1, 0.0, 0.027, 0.13);
+    float silk2 = ribbon(field2, 0.0, 0.018, 0.10);
+    float silk3 = ribbon(field3, 0.0, 0.012, 0.075);
+
+    // Fine specular ridges make each flowing band feel like folded liquid metal.
+    float ridge1 = exp(-abs(field1) * 95.0) * (0.35 + 0.65 * sin(field1 * 180.0 + t * 1.7));
+    float ridge2 = exp(-abs(field2) * 125.0);
+    float ridge3 = exp(-abs(field3) * 155.0);
+
+    float turbulence = fbm(q * 3.0 + vec2(t * 0.05, -t * 0.07));
+    float flowMask = smoothstep(0.22, 0.88, turbulence);
+    vec3 base = vec3(0.018, 0.022, 0.030);
+    vec3 pink = vec3(1.0, 0.015, 0.43);
+    vec3 lime = vec3(0.73, 1.0, 0.015);
+    vec3 silver = vec3(0.66, 0.72, 0.82);
+
+    float pinkBand = silk1 * (0.45 + 0.55 * flowMask);
+    float limeBand = silk2 * (0.30 + 0.70 * (1.0 - flowMask));
+    float silverBand = silk3 * 0.48;
+
+    vec3 color = base;
+    color += pink * pinkBand * 0.48;
+    color += lime * limeBand * 0.23;
+    color += silver * silverBand * 0.30;
+    color += pink * ridge1 * 0.18;
+    color += lime * ridge2 * 0.15;
+    color += silver * ridge3 * 0.22;
+
+    // Broad, soft illumination blooms drift behind the flowing silk.
+    float bloomPink = exp(-length((q - vec2(0.36, 0.04)) * vec2(0.8, 1.35)) * 2.8);
+    float bloomLime = exp(-length((q - vec2(-0.58, -0.12)) * vec2(0.7, 1.1)) * 3.4);
+    color += pink * bloomPink * (0.035 + 0.025 * sin(t * 0.22));
+    color += lime * bloomLime * (0.018 + 0.012 * cos(t * 0.18));
+
+    // Atmospheric vignette preserves readable contrast for the foreground content.
+    float vignette = smoothstep(1.45, 0.18, length(p * vec2(0.78, 1.12)));
+    color *= 0.62 + vignette * 0.55;
+    color = pow(max(color, 0.0), vec3(0.92));
+    gl_FragColor = vec4(color, 1.0);
+  }
+`;
+
 export default function HomeKineticBackdrop() {
   const host = useRef(null);
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    const el = host.current;
-    if (!el) return undefined;
+    const element = host.current;
+    if (!element) return undefined;
 
     let renderer;
-    let raf = 0;
-    let visible = true;
-    let pointerX = 0;
-    let pointerY = 0;
-    let targetX = 0;
-    let targetY = 0;
+    let animationFrame = 0;
+    let visible = !document.hidden;
+    let pointer = new THREE.Vector2(0, 0);
+    let targetPointer = new THREE.Vector2(0, 0);
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 80);
-    camera.position.set(0.15, 1.05, 9.2);
-    camera.lookAt(0.55, 0, 0);
 
     try {
-      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+      renderer = new THREE.WebGLRenderer({
+        antialias: false,
+        alpha: false,
+        powerPreference: 'high-performance',
+        stencil: false,
+        depth: false,
+      });
     } catch {
-      el.classList.add('home-kinetic-fallback');
+      element.classList.add('home-kinetic-fallback');
       return undefined;
     }
+
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+    renderer.setSize(element.clientWidth, element.clientHeight, false);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.15;
-    renderer.setClearColor(0x000000, 0);
-    el.appendChild(renderer.domElement);
+    element.appendChild(renderer.domElement);
 
-    scene.add(new THREE.HemisphereLight(0xcbd2dc, 0x10131a, 1.7));
-    const key = new THREE.DirectionalLight(0xffffff, 3.2);
-    key.position.set(-3, 6, 5);
-    scene.add(key);
-    const pinkRim = new THREE.PointLight(0xff00a6, 32, 13);
-    pinkRim.position.set(-3, 1.5, -2);
-    scene.add(pinkRim);
-    const limeRim = new THREE.PointLight(0xc8ff00, 22, 12);
-    limeRim.position.set(4, -1, 3);
-    scene.add(limeRim);
-    const topLight = new THREE.SpotLight(0xffffff, 38, 18, Math.PI / 7, 0.55, 1.2);
-    topLight.position.set(1, 6, 4);
-    topLight.target.position.set(1, 0, 0);
-    scene.add(topLight, topLight.target);
-
-    const rig = new THREE.Group();
-    rig.position.set(1.25, 0.02, 0);
-    scene.add(rig);
-
-    const titanium = new THREE.MeshStandardMaterial({ color: 0x68717d, metalness: 0.92, roughness: 0.23 });
-    const graphite = new THREE.MeshStandardMaterial({ color: 0x171d26, metalness: 0.84, roughness: 0.28 });
-    const brightMetal = new THREE.MeshStandardMaterial({ color: 0xc4cbd3, metalness: 0.95, roughness: 0.17 });
-    const pink = new THREE.MeshStandardMaterial({ color: 0xff00a6, emissive: 0x65003e, emissiveIntensity: 1.25, metalness: 0.55, roughness: 0.2 });
-    const lime = new THREE.MeshStandardMaterial({ color: 0xc8ff00, emissive: 0x354900, emissiveIntensity: 0.85, metalness: 0.48, roughness: 0.24 });
-    const glass = new THREE.MeshPhysicalMaterial({ color: 0x303b49, metalness: 0.65, roughness: 0.12, clearcoat: 1, clearcoatRoughness: 0.08, transparent: true, opacity: 0.88 });
-
-    const outerRotor = new THREE.Group();
-    const middleRotor = new THREE.Group();
-    const iris = new THREE.Group();
-    rig.add(outerRotor, middleRotor, iris);
-
-    const addRing = (parent, radius, tube, material, rotation = [Math.PI / 2, 0, 0], arc = Math.PI * 2) => {
-      const mesh = new THREE.Mesh(new THREE.TorusGeometry(radius, tube, 16, 180, arc), material);
-      mesh.rotation.set(...rotation);
-      parent.add(mesh);
-      return mesh;
+    const scene = new THREE.Scene();
+    const camera = new THREE.Camera();
+    const uniforms = {
+      uTime: { value: 0 },
+      uResolution: { value: new THREE.Vector2(element.clientWidth, element.clientHeight) },
+      uPointer: { value: new THREE.Vector2(0, 0) },
     };
-
-    // Large precision-machined outer bearing with segmented illuminated raceways.
-    addRing(outerRotor, 2.72, 0.075, titanium);
-    addRing(outerRotor, 2.58, 0.018, lime);
-    addRing(outerRotor, 2.88, 0.018, graphite);
-    for (let i = 0; i < 12; i++) {
-      const angle = (i / 12) * Math.PI * 2;
-      const block = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.13, 0.2), i % 3 === 0 ? pink : brightMetal);
-      block.position.set(Math.cos(angle) * 2.72, 0, Math.sin(angle) * 2.72);
-      block.rotation.y = -angle;
-      outerRotor.add(block);
-      const bolt = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.035, 12), graphite);
-      bolt.position.set(Math.cos(angle) * 2.72, 0.085, Math.sin(angle) * 2.72);
-      outerRotor.add(bolt);
-    }
-
-    // Nested counter-rotating gyroscopic rings.
-    addRing(middleRotor, 1.98, 0.055, brightMetal, [Math.PI / 2 + 0.26, 0.12, 0.08]);
-    addRing(middleRotor, 1.82, 0.022, pink, [Math.PI / 2 + 0.26, 0.12, 0.08]);
-    addRing(middleRotor, 1.46, 0.045, titanium, [Math.PI / 2 - 0.36, -0.16, 0.12]);
-    addRing(middleRotor, 1.31, 0.016, lime, [Math.PI / 2 - 0.36, -0.16, 0.12]);
-
-    // Twelve overlapping iris vanes create a mechanical aperture, not a particle effect.
-    for (let i = 0; i < 12; i++) {
-      const angle = (i / 12) * Math.PI * 2;
-      const vane = new THREE.Group();
-      vane.rotation.y = angle;
-      vane.position.set(Math.cos(angle) * 0.42, 0, Math.sin(angle) * 0.42);
-      const plate = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.11, 1.25), i % 3 === 0 ? pink : graphite);
-      plate.position.z = 0.58;
-      plate.rotation.y = 0.18;
-      vane.add(plate);
-      const edge = new THREE.Mesh(new THREE.BoxGeometry(0.025, 0.035, 1.12), lime);
-      edge.position.set(0.12, 0.07, 0.58);
-      edge.rotation.y = 0.18;
-      vane.add(edge);
-      iris.add(vane);
-    }
-
-    // Central octagonal actuator housing with stacked machined collars.
-    const housing = new THREE.Group();
-    rig.add(housing);
-    const base = new THREE.Mesh(new THREE.CylinderGeometry(0.76, 0.9, 0.32, 8), graphite);
-    housing.add(base);
-    const collar = new THREE.Mesh(new THREE.CylinderGeometry(0.62, 0.7, 0.16, 8), titanium);
-    collar.position.y = 0.23;
-    housing.add(collar);
-    const core = new THREE.Mesh(new THREE.OctahedronGeometry(0.57, 1), glass);
-    core.position.y = 0.48;
-    housing.add(core);
-    const crown = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.42, 0.09, 8), pink);
-    crown.position.y = 0.91;
-    housing.add(crown);
-    addRing(housing, 0.98, 0.025, lime, [Math.PI / 2, 0, 0]);
-    for (let i = 0; i < 8; i++) {
-      const angle = (i / 8) * Math.PI * 2;
-      const piston = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.55, 12), brightMetal);
-      piston.position.set(Math.cos(angle) * 1.05, 0.05, Math.sin(angle) * 1.05);
-      piston.rotation.z = Math.cos(angle) * 0.16;
-      piston.rotation.x = Math.sin(angle) * 0.16;
-      rig.add(piston);
-      const cap = new THREE.Mesh(new THREE.SphereGeometry(0.085, 12, 12), i % 2 ? lime : pink);
-      cap.position.set(Math.cos(angle) * 1.05, 0.34, Math.sin(angle) * 1.05);
-      rig.add(cap);
-    }
-
-    // Structural braces, fasteners and machined support rails.
-    for (let i = 0; i < 8; i++) {
-      const angle = (i / 8) * Math.PI * 2;
-      const brace = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.11, 1.08), titanium);
-      brace.position.set(Math.cos(angle) * 2.15, 0, Math.sin(angle) * 2.15);
-      brace.rotation.y = -angle;
-      rig.add(brace);
-    }
-
-    const floor = new THREE.GridHelper(13, 52, 0x303844, 0x171d25);
-    floor.position.set(1.1, -2.35, 0);
-    rig.add(floor);
-    const ground = new THREE.Mesh(new THREE.PlaneGeometry(18, 12), new THREE.MeshBasicMaterial({ color: 0x080a0e, transparent: true, opacity: 0.45 }));
-    ground.rotation.x = -Math.PI / 2;
-    ground.position.set(1.1, -2.38, 0);
-    rig.add(ground);
+    const material = new THREE.ShaderMaterial({
+      vertexShader,
+      fragmentShader,
+      uniforms,
+      depthWrite: false,
+      depthTest: false,
+    });
+    const surface = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
+    scene.add(surface);
 
     const resize = () => {
-      const w = Math.max(el.clientWidth, 1);
-      const h = Math.max(el.clientHeight, 1);
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-      renderer.setSize(w, h, false);
+      const width = Math.max(element.clientWidth, 1);
+      const height = Math.max(element.clientHeight, 1);
+      renderer.setSize(width, height, false);
+      uniforms.uResolution.value.set(width * renderer.getPixelRatio(), height * renderer.getPixelRatio());
     };
     const observer = new ResizeObserver(resize);
-    observer.observe(el);
+    observer.observe(element);
     resize();
 
-    const onPointer = (event) => {
-      const bounds = el.getBoundingClientRect();
-      targetX = ((event.clientX - bounds.left) / bounds.width - 0.5) * 0.32;
-      targetY = ((event.clientY - bounds.top) / bounds.height - 0.5) * 0.18;
+    const onPointerMove = (event) => {
+      const bounds = element.getBoundingClientRect();
+      targetPointer.set(
+        ((event.clientX - bounds.left) / bounds.width - 0.5) * 2,
+        ((event.clientY - bounds.top) / bounds.height - 0.5) * -2
+      );
     };
-    const onLeave = () => { targetX = 0; targetY = 0; };
+    const onPointerLeave = () => targetPointer.set(0, 0);
     const onVisibility = () => { visible = !document.hidden; };
-    el.addEventListener('pointermove', onPointer, { passive: true });
-    el.addEventListener('pointerleave', onLeave);
+    element.addEventListener('pointermove', onPointerMove, { passive: true });
+    element.addEventListener('pointerleave', onPointerLeave);
     document.addEventListener('visibilitychange', onVisibility);
 
-    const renderStatic = () => renderer.render(scene, camera);
-    const animate = () => {
-      raf = requestAnimationFrame(animate);
+    const renderFrame = (timestamp) => {
+      animationFrame = requestAnimationFrame(renderFrame);
       if (!visible || document.hidden) return;
-      pointerX += (targetX - pointerX) * 0.035;
-      pointerY += (targetY - pointerY) * 0.035;
-      outerRotor.rotation.y += 0.0017;
-      middleRotor.rotation.y -= 0.0025;
-      iris.rotation.y += 0.0011;
-      iris.children.forEach((vane, i) => {
-        vane.rotation.x = Math.sin(performance.now() * 0.00035 + i * 0.5) * 0.035;
-      });
-      core.rotation.y += 0.002;
-      core.rotation.x = Math.sin(performance.now() * 0.00025) * 0.08;
-      rig.rotation.y = pointerX;
-      rig.rotation.x = pointerY;
-      pinkRim.intensity = 28 + Math.sin(performance.now() * 0.00045) * 6;
-      limeRim.intensity = 18 + Math.cos(performance.now() * 0.0004) * 4;
+      pointer.lerp(targetPointer, 0.025);
+      uniforms.uPointer.value.copy(pointer);
+      uniforms.uTime.value = timestamp * 0.00018;
       renderer.render(scene, camera);
     };
 
-    if (!paused && !reducedMotion) animate();
-    else renderStatic();
+    if (!paused && !reducedMotion) animationFrame = requestAnimationFrame(renderFrame);
+    else renderer.render(scene, camera);
 
     return () => {
-      cancelAnimationFrame(raf);
+      cancelAnimationFrame(animationFrame);
       observer.disconnect();
-      el.removeEventListener('pointermove', onPointer);
-      el.removeEventListener('pointerleave', onLeave);
+      element.removeEventListener('pointermove', onPointerMove);
+      element.removeEventListener('pointerleave', onPointerLeave);
       document.removeEventListener('visibilitychange', onVisibility);
-      scene.traverse((object) => {
-        object.geometry?.dispose();
-        if (Array.isArray(object.material)) object.material.forEach((m) => m.dispose());
-        else object.material?.dispose();
-      });
+      surface.geometry.dispose();
+      material.dispose();
       renderer.dispose();
       renderer.domElement.remove();
     };
@@ -225,7 +218,7 @@ export default function HomeKineticBackdrop() {
         className="home-motion-toggle"
         onClick={() => setPaused((value) => !value)}
         aria-pressed={paused}
-        aria-label={paused ? 'Play background motion' : 'Pause background motion'}
+        aria-label={paused ? 'Resume animated background' : 'Pause animated background'}
       >
         <span className={paused ? 'motion-indicator paused' : 'motion-indicator'} />
         {paused ? 'RESUME MOTION' : 'PAUSE MOTION'}
