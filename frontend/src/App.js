@@ -11,6 +11,7 @@ import D25 from './pages/D25';
 import Industries from './pages/Industries';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import Sectors from './pages/Sectors';
 import DSIndustries from './pages/DSIndustries';
 import QuantaIndustries from './pages/QuantaIndustries';
@@ -38,6 +39,7 @@ function Layout() {
           <Route path="/sectors" element={<Sectors />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </main>
       <Footer />
