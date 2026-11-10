@@ -10,45 +10,38 @@ import {
 
 const initiatives = [
   {
-    code: 'Q0B', name: 'Quantum[-0-]Brain', category: 'FRONTIER AI / COGNITIVE SYSTEMS',
+    code: 'Q0B / D25', name: 'Quantum[-0-]Brain D25@1007', category: 'FRONTIER AI',
     status: 'IN DEVELOPMENT', accent: 'pink', icon: BrainCircuit,
-    summary: 'An exploratory intelligence architecture focused on complex reasoning, contextual synthesis and adaptive computational workflows.',
-    focus: ['Cognitive architecture', 'Reasoning systems', 'Contextual intelligence', 'Experimental evaluation'],
+    summary: 'A Frontier AI initiative combining the Quantum[-0-]Brain identity with the D25@1007 programme. Its research direction centres on advanced intelligence capabilities and next-generation AI systems.',
+    focus: ['Frontier AI research', 'Advanced reasoning architectures', 'Intelligent system development', 'Capability evaluation'],
     visual: 'brain',
-  },
-  {
-    code: 'D25', name: 'D25@1007', category: 'INTELLIGENCE FRAMEWORK',
-    status: 'RESEARCH FRAMEWORK', accent: 'lime', icon: Workflow,
-    summary: 'An internal framework for structuring the evaluation and progression of advanced intelligence systems. Detailed methodology remains internal.',
-    focus: ['Evaluation architecture', 'Capability measurement', 'System-level validation', 'Research governance'],
-    visual: 'layers',
   },
   {
     code: 'SX-D2', name: 'ScorpioX D2', category: 'FRONTIER AI / AUTONOMOUS SYSTEMS',
     status: 'IN DEVELOPMENT', accent: 'pink', icon: Crosshair,
-    summary: 'A developing frontier-AI initiative exploring perception, situational understanding and coordinated system intelligence.',
+    summary: 'An independent Frontier AI initiative with its own research and development direction, separate from Quantum[-0-]Brain D25@1007.',
     focus: ['Perception research', 'Situational understanding', 'Multi-system coordination', 'Decision-support concepts'],
     visual: 'scorpio',
   },
   {
     code: 'ASURA-01', name: 'ASURA Defence Intelligence System', category: 'FRONTIER AI / DEFENCE INTELLIGENCE',
     status: 'IN DEVELOPMENT', accent: 'lime', icon: Shield,
-    summary: 'An India-led research initiative exploring AI-enabled intelligence workflows, information fusion and analytical decision support for defence-oriented contexts.',
-    focus: ['Information fusion', 'Intelligence analysis', 'Operational awareness', 'Human-supervised decision support'],
+    summary: 'A real-time Frontier AI intelligence platform designed to gather, correlate and present information from worldwide data sources in a unified operational picture. Public descriptions remain high-level.',
+    focus: ['Worldwide data-source integration', 'Real-time information aggregation', 'Cross-source correlation', 'Unified operational visualisation'],
     visual: 'asura',
   },
   {
     code: 'ASURA-02', name: 'ASURA Defence Systems', category: 'DEFENCE SYSTEMS ENGINEERING',
     status: 'IN DEVELOPMENT', accent: 'pink', icon: Radar,
-    summary: 'A separate systems-engineering programme exploring integrated sensing, resilient infrastructure and defence-oriented technology systems.',
-    focus: ['Systems integration', 'Sensor and data interfaces', 'Resilient architecture', 'Engineering assurance'],
+    summary: 'The physical hardware counterpart to ASURA Defence Intelligence System: a defence systems programme intended to connect intelligence outputs with real-world sensing and operational hardware. Specific capabilities are not disclosed publicly.',
+    focus: ['Intelligence-to-hardware integration', 'Physical sensing and actuation interfaces', 'Hardware systems engineering', 'Safety and operational assurance'],
     visual: 'defence',
   },
   {
-    code: 'QD2', name: 'Quantum D2 Drones', category: 'AEROSPACE / UNCREWED SYSTEMS',
+    code: 'QD2', name: 'Quantum D2 Drones', category: 'MEDICAL LOGISTICS / ORGAN TRANSPORT',
     status: 'IN DEVELOPMENT', accent: 'lime', icon: Satellite,
-    summary: 'An emerging unmanned-systems initiative exploring intelligent aerial platforms, onboard computation and connected mission systems.',
-    focus: ['Aerial platform concepts', 'Onboard intelligence', 'Telemetry and control architecture', 'System integration'],
+    summary: 'A specialised drone initiative focused on time-critical organ transportation, with the aim of supporting medical logistics and transplant coordination.',
+    focus: ['Time-critical organ transportation', 'Medical logistics workflows', 'Secure handling and payload integrity', 'Flight operations and coordination'],
     visual: 'drone',
   },
 ];
@@ -136,7 +129,7 @@ export default function D25() {
             <h1>Engineering what<br/><em>comes next.</em></h1>
             <p>A portfolio of frontier intelligence research, defence-oriented systems, aerospace concepts and advanced technology programmes. Selected details are intentionally reserved.</p>
             <div className="portfolio-hero-links"><a href="#frontier-projects">Explore projects <ChevronRight size={16}/></a><a href="#centres-of-excellence">Centres of Excellence <ArrowUpRight size={15}/></a></div>
-            <div className="portfolio-hero-stats"><span><b>06</b> FEATURED PROJECTS</span><span><b>02</b> CENTRES OF EXCELLENCE</span><span><b>01</b> INTERNATIONAL MISSION</span></div>
+            <div className="portfolio-hero-stats"><span><b>05</b> FEATURED PROJECTS</span><span><b>02</b> CENTRES OF EXCELLENCE</span><span><b>01</b> INTERNATIONAL MISSION</span></div>
           </div>
           <div className="portfolio-hero-visual">
             <div className="portfolio-visual-header"><span>MQ / PROGRAMME LANDSCAPE</span><span>2026 — ONGOING</span></div>
