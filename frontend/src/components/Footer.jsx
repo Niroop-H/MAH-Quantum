@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-main">
         <div className="footer-brand">
-          <img className="footer-logo" src="/logo.jpeg?v=20261110" alt="MAH Quantum emblem" />
+          <img className="footer-logo" src="/logo.jpeg?v=20261110" alt="MAH Quantum™ emblem" />
           <div className="footer-wordmark">
             MAH <span>QUANTUM<sup className="brand-trademark">™</sup></span>
           </div>
@@ -59,7 +59,7 @@ export default function Footer() {
 
       <div className="container footer-bottom">
         <span>
-          © {new Date().getFullYear()} MAH Quantum.
+          © {new Date().getFullYear()} MAH Quantum™.
           All rights reserved.
         </span>
         <span>
