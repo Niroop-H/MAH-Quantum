@@ -2288,3 +2288,46 @@ h4[class*="text-"] {
  .portfolio-more strong { margin-left:0;flex-basis:100%; }
  .portfolio-closing { padding:70px 20px; }
 }
+
+
+/* High-detail physically based project render stage */
+.initiative-art {
+  background:
+    radial-gradient(ellipse at 50% 48%,rgba(92,112,135,.16),transparent 60%),
+    linear-gradient(155deg,#0b1017,#07090d 72%);
+}
+.art-lime {
+  background:
+    radial-gradient(ellipse at 50% 48%,rgba(129,158,38,.13),transparent 60%),
+    linear-gradient(155deg,#0b1017,#07090d 72%);
+}
+.initiative-art-top,.initiative-art-bottom {
+  position:relative;
+  z-index:2;
+}
+.initiative-render {
+  position:relative;
+  width:100%;
+  height:260px;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 75%,rgba(125,145,166,.12),transparent 52%),
+    linear-gradient(180deg,#0a0e14,#090c11);
+}
+.initiative-render canvas {
+  display:block;
+  width:100%;
+  height:100%;
+}
+.initiative-render-fallback {
+  background:radial-gradient(ellipse at 50% 50%,rgba(255,0,166,.1),transparent 65%),#090c11;
+}
+.initiative-art-bottom {
+  position:relative;
+  z-index:2;
+  border-top:1px solid rgba(205,215,228,.13);
+  background:rgba(7,9,13,.72);
+}
+@media(max-width:700px) {
+  .initiative-render { height:240px; }
+}
