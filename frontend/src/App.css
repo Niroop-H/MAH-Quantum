@@ -50,12 +50,14 @@
 }
 
 .brand img {
-  width: 31px;
-  height: 31px;
-
-  object-fit: cover;
-
-  border-radius: 50%;
+  display: block;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0;
+  background: #0b0e16;
 }
 
 .brand span {
@@ -384,30 +386,14 @@
 }
 
 .dossier-mark {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 58px;
-  height: 58px;
-
-  margin:
-    42px
-    0
-    19px;
-
-  border:
-    1px solid #aeb4bb;
-
-  color: var(--ink);
-
-  font:
-    700
-    17px/1
-    'Outfit';
-
-  letter-spacing: .08em;
+  display: block;
+  width: 104px;
+  height: 104px;
+  margin: 34px 0 22px;
+  object-fit: contain;
+  object-position: center;
+  background: #0b0e16;
+  border: 1px solid #343b49;
 }
 
 .dossier-title {
