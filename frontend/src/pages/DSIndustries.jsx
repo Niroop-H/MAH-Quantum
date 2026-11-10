@@ -38,7 +38,7 @@ export default function DSIndustries() {
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.p {...fadeUp} transition={{ duration: 0.6 }} className="text-slate-600 text-lg leading-relaxed font-ibm max-w-3xl mb-14">
-            D.S Industries is the engineering and manufacturing arm of MAH Quantum — responsible for hardware
+            D.S Industries is the engineering and manufacturing arm of MAH Quantum™ — responsible for hardware
             integration, production partnerships, and the physical deployment of intelligent systems into
             industrial environments.
           </motion.p>
