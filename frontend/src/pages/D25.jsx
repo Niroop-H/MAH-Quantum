@@ -154,7 +154,7 @@ export default function D25() {
             <div className="font-outfit font-black text-8xl sm:text-9xl text-gradient mb-4">@1007</div>
             <div className="text-white font-outfit font-bold text-2xl mb-6">D25 Intelligence Framework Score</div>
             <p className="text-slate-300 text-base leading-relaxed max-w-2xl mx-auto mb-8 font-ibm">
-              The D25@1007 score represents MAH Quantum's benchmark target for the Quantum Brain architecture — a composite measure across all six intelligence dimensions, providing a structured pathway toward scalable, self-improving intelligent systems.
+              The D25@1007 score represents MAH Quantum™'s benchmark target for the Quantum Brain architecture — a composite measure across all six intelligence dimensions, providing a structured pathway toward scalable, self-improving intelligent systems.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               {metrics.map((m) => (
@@ -176,7 +176,7 @@ export default function D25() {
               Ready to Deploy <span className="text-gradient">D25@1007</span> Intelligence?
             </h2>
             <Link to="/contact" data-testid="d25-contact-cta" className="btn-primary inline-flex items-center gap-2">
-              Contact MAH Quantum <ArrowRight size={16} />
+              Contact MAH Quantum™ <ArrowRight size={16} />
             </Link>
           </motion.div>
         </div>
