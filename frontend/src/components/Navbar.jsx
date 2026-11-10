@@ -88,6 +88,10 @@ export default function Navbar() {
 
           ))}
 
+          <a className="nav-external-link" href="https://mqsiquantum.mahquantum.tech/" target="_blank" rel="noopener noreferrer">
+            MQSI Quantum <ArrowUpRight size={12} />
+          </a>
+
         </nav>
 
 
@@ -130,6 +134,10 @@ export default function Navbar() {
             </Link>
 
           ))}
+
+          <a className="mobile-nav-external" href="https://mqsiquantum.mahquantum.tech/" target="_blank" rel="noopener noreferrer">
+            MQSI Quantum Mission <ArrowUpRight size={15} />
+          </a>
 
           <Link
             to="/contact"
