@@ -9,7 +9,6 @@ import About from './pages/About';
 import Architecture from './pages/Architecture';
 import D25 from './pages/D25';
 import Industries from './pages/Industries';
-import Services from './pages/Services';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Sectors from './pages/Sectors';
@@ -37,7 +36,6 @@ function Layout() {
           <Route path="/industries/ds-industries" element={<DSIndustries />} />
           <Route path="/industries/quanta-industries" element={<QuantaIndustries />} />
           <Route path="/sectors" element={<Sectors />} />
-          <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
