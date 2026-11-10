@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import IndustryShowcase from '../components/IndustryShowcase';
 import {
   ArrowUpRight,
   ChevronRight,
@@ -431,6 +432,8 @@ export default function Home() {
 
       </section>
 
+
+      <IndustryShowcase />
 
       {/* RESEARCH */}
       <section className="research-section">
