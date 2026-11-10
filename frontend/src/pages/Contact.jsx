@@ -21,7 +21,7 @@ const industries = [
 const contactInfo = [
   { icon: Mail, label: 'Email Us', value: 'nirooph@mahquantum.tech', href: 'mailto:nirooph@mahquantum.tech' },
   { icon: MapPin, label: 'Office Address', value: '#22/21, Maramma Temple Road, Mysore Road Avalahalli, Bengaluru – 560026', href: '#' },
-  { icon: Globe, label: 'Company', value: 'MAH Quantum', href: '#' },
+  { icon: Globe, label: 'Company', value: 'MAH Quantum™', href: '#' },
   { icon: Building2, label: 'Focus', value: 'Enterprise AI & IT Systems', href: '#' },
 ];
 
@@ -65,7 +65,7 @@ export default function Contact() {
               Start a <span className="text-gradient">Conversation</span>
             </h1>
             <p className="text-slate-600 text-lg leading-relaxed font-ibm">
-              Discuss how MAH Quantum can embed intelligent systems into your operational infrastructure. We respond to all inquiries within 24 hours.
+              Discuss how MAH Quantum™ can embed intelligent systems into your operational infrastructure. We respond to all inquiries within 24 hours.
             </p>
           </motion.div>
         </div>
@@ -117,7 +117,7 @@ export default function Contact() {
                   </div>
                   <h2 className="font-outfit font-bold text-2xl text-slate-900 mb-3">Inquiry Received</h2>
                   <p className="text-slate-500 text-base font-ibm max-w-sm">
-                    Thank you for reaching out to MAH Quantum. Our team will review your inquiry and respond within 24 hours.
+                    Thank you for reaching out to MAH Quantum™. Our team will review your inquiry and respond within 24 hours.
                   </p>
                   <button
                     data-testid="contact-send-another"
