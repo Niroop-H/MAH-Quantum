@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="footer-brand">
           <img className="footer-logo" src="/logo.jpeg?v=20261110" alt="MAH Quantum emblem" />
           <div className="footer-wordmark">
-            MAH <span>QUANTUM</span>
+            MAH <span>QUANTUM<sup className="brand-trademark">™</sup></span>
           </div>
           <p>
             Advanced technology, engineering and applied
