@@ -1306,6 +1306,10 @@
       clamp(43px, 14vw, 64px);
   }
 
+  .hero-copy h1.hero-brand-title {
+    font-size: clamp(42px, 11vw, 64px);
+  }
+
   .hero-lede {
     font-size: 15px;
   }
