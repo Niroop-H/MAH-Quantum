@@ -28,7 +28,7 @@ export default function PrivacyPolicy() {
             <h1 className="font-outfit font-bold text-5xl sm:text-6xl leading-tight mb-5" style={{ color: '#0F172A' }}>
               Privacy <span style={{ color: '#008FCB' }}>Policy</span>
             </h1>
-            <p className="font-ibm" style={{ color: '#64748B' }}>MAH Quantum · Effective 10 November 2026 · Last updated 10 November 2026</p>
+            <p className="font-ibm" style={{ color: '#64748B' }}>MAH Quantum™ · Effective 10 November 2026 · Last updated 10 November 2026</p>
           </motion.div>
         </div>
       </section>
@@ -39,14 +39,14 @@ export default function PrivacyPolicy() {
           style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: '18px', color: '#334155', opacity: 1, visibility: 'visible' }}
         >
           <p className="leading-7 font-ibm mb-10" style={{ color: '#334155' }}>
-            MAH Quantum ("MAH Quantum", "we", "us" or "our") respects your privacy. This policy explains
+            MAH Quantum™ ("MAH Quantum™", "we", "us" or "our") respects your privacy. This policy explains
             how information may be collected and used when you visit our websites, contact us, or use
-            MAH Quantum Workspace and related services.
+            MAH Quantum™ Workspace and related services.
           </p>
           <Section title="1. Information we process">
             <p><strong style={{ color: '#1E293B' }}>Contact enquiries.</strong> When you submit our contact form, we collect the name, email address, company or organisation, industry and message that you provide. The form sends this information to our application backend so that we can receive and respond to your enquiry.</p>
             <p><strong style={{ color: '#1E293B' }}>Technical information.</strong> Our website infrastructure and hosting providers may process technical information such as IP address, browser and device details, requested pages, timestamps, security events and diagnostic logs.</p>
-            <p><strong style={{ color: '#1E293B' }}>Workspace information.</strong> MAH Quantum Workspace may process quantum circuits, OpenQASM programs, experiment settings, simulation outputs, project snapshots and job history. Core circuit simulation is designed to run locally in your browser. Some workspace information may be saved in browser storage on your device.</p>
+            <p><strong style={{ color: '#1E293B' }}>Workspace information.</strong> MAH Quantum™ Workspace may process quantum circuits, OpenQASM programs, experiment settings, simulation outputs, project snapshots and job history. Core circuit simulation is designed to run locally in your browser. Some workspace information may be saved in browser storage on your device.</p>
             <p><strong style={{ color: '#1E293B' }}>Commercial communications.</strong> If you request product access, support or a subscription, we may process the contact and correspondence details you provide, together with access, subscription, payment confirmation and transaction-reference records needed to administer the relationship.</p>
           </Section>
           <Section title="2. How we use information">
@@ -89,7 +89,7 @@ export default function PrivacyPolicy() {
           </Section>
           <Section title="14. Contact">
             <p>For privacy questions or requests, contact:</p>
-            <p><strong style={{ color: '#1E293B' }}>MAH Quantum</strong><br />
+            <p><strong style={{ color: '#1E293B' }}>MAH Quantum™</strong><br />
               Bengaluru, Karnataka, India<br />
               Email: <a style={{ color: '#008FCB' }} href="mailto:nirooph@mahquantum.tech">nirooph@mahquantum.tech</a><br />
               Website: <a style={{ color: '#008FCB' }} href="https://mahquantum.tech">https://mahquantum.tech</a>
