@@ -2,39 +2,52 @@ import { motion } from 'framer-motion';
 
 const Section = ({ title, children }) => (
   <section className="mb-10">
-    <h2 className="font-outfit font-bold text-2xl text-slate-900 mb-4">{title}</h2>
-    <div className="space-y-3 text-slate-600 leading-7 font-ibm">{children}</div>
+    <h2
+      className="font-outfit font-bold text-2xl mb-4"
+      style={{ color: '#111827', opacity: 1, visibility: 'visible' }}
+    >
+      {title}
+    </h2>
+    <div
+      className="space-y-3 leading-7 font-ibm"
+      style={{ color: '#475569', opacity: 1, visibility: 'visible' }}
+    >
+      {children}
+    </div>
   </section>
 );
 
 export default function PrivacyPolicy() {
   return (
-    <div className="bg-[#F8FAFC] min-h-screen">
+    <div className="min-h-screen" style={{ background: '#F8FAFC', color: '#334155' }}>
       <section className="relative pt-20 pb-12 overflow-hidden">
         <div className="absolute top-0 right-0 w-[420px] h-[420px] orb-blue pointer-events-none" />
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 relative">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="chip-blue mb-4 inline-block">Legal / Privacy</span>
-            <h1 className="font-outfit font-bold text-5xl sm:text-6xl text-slate-900 leading-tight mb-5">
-              Privacy <span className="text-gradient">Policy</span>
+            <h1 className="font-outfit font-bold text-5xl sm:text-6xl leading-tight mb-5" style={{ color: '#0F172A' }}>
+              Privacy <span style={{ color: '#008FCB' }}>Policy</span>
             </h1>
-            <p className="text-slate-600 font-ibm">MAH Quantum · Effective 10 November 2026 · Last updated 10 November 2026</p>
+            <p className="font-ibm" style={{ color: '#64748B' }}>MAH Quantum · Effective 10 November 2026 · Last updated 10 November 2026</p>
           </motion.div>
         </div>
       </section>
 
       <main className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 pb-24">
-        <div className="card-glass p-6 sm:p-10">
-          <p className="text-slate-700 leading-7 font-ibm mb-10">
+        <article
+          className="p-6 sm:p-10"
+          style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: '18px', color: '#334155', opacity: 1, visibility: 'visible' }}
+        >
+          <p className="leading-7 font-ibm mb-10" style={{ color: '#334155' }}>
             MAH Quantum ("MAH Quantum", "we", "us" or "our") respects your privacy. This policy explains
             how information may be collected and used when you visit our websites, contact us, or use
             MAH Quantum Workspace and related services.
           </p>
           <Section title="1. Information we process">
-            <p><strong className="text-slate-800">Contact enquiries.</strong> When you submit our contact form, we collect the name, email address, company or organisation, industry and message that you provide. The form sends this information to our application backend so that we can receive and respond to your enquiry.</p>
-            <p><strong className="text-slate-800">Technical information.</strong> Our website infrastructure and hosting providers may process technical information such as IP address, browser and device details, requested pages, timestamps, security events and diagnostic logs.</p>
-            <p><strong className="text-slate-800">Workspace information.</strong> MAH Quantum Workspace may process quantum circuits, OpenQASM programs, experiment settings, simulation outputs, project snapshots and job history. Core circuit simulation is designed to run locally in your browser. Some workspace information may be saved in browser storage on your device.</p>
-            <p><strong className="text-slate-800">Commercial communications.</strong> If you request product access, support or a subscription, we may process the contact and correspondence details you provide, together with access, subscription, payment confirmation and transaction-reference records needed to administer the relationship.</p>
+            <p><strong style={{ color: '#1E293B' }}>Contact enquiries.</strong> When you submit our contact form, we collect the name, email address, company or organisation, industry and message that you provide. The form sends this information to our application backend so that we can receive and respond to your enquiry.</p>
+            <p><strong style={{ color: '#1E293B' }}>Technical information.</strong> Our website infrastructure and hosting providers may process technical information such as IP address, browser and device details, requested pages, timestamps, security events and diagnostic logs.</p>
+            <p><strong style={{ color: '#1E293B' }}>Workspace information.</strong> MAH Quantum Workspace may process quantum circuits, OpenQASM programs, experiment settings, simulation outputs, project snapshots and job history. Core circuit simulation is designed to run locally in your browser. Some workspace information may be saved in browser storage on your device.</p>
+            <p><strong style={{ color: '#1E293B' }}>Commercial communications.</strong> If you request product access, support or a subscription, we may process the contact and correspondence details you provide, together with access, subscription, payment confirmation and transaction-reference records needed to administer the relationship.</p>
           </Section>
           <Section title="2. How we use information">
             <p>We use information to operate and maintain our websites and services; respond to enquiries and support requests; provide access to products; administer subscriptions where offered; troubleshoot errors; protect against fraud, abuse and security incidents; improve reliability; and comply with legal obligations.</p>
@@ -76,17 +89,17 @@ export default function PrivacyPolicy() {
           </Section>
           <Section title="14. Contact">
             <p>For privacy questions or requests, contact:</p>
-            <p><strong className="text-slate-800">MAH Quantum</strong><br />
+            <p><strong style={{ color: '#1E293B' }}>MAH Quantum</strong><br />
               Bengaluru, Karnataka, India<br />
-              Email: <a className="text-[#008FCB] hover:underline" href="mailto:nirooph@mahquantum.tech">nirooph@mahquantum.tech</a><br />
-              Website: <a className="text-[#008FCB] hover:underline" href="https://mahquantum.tech">https://mahquantum.tech</a>
+              Email: <a style={{ color: '#008FCB' }} href="mailto:nirooph@mahquantum.tech">nirooph@mahquantum.tech</a><br />
+              Website: <a style={{ color: '#008FCB' }} href="https://mahquantum.tech">https://mahquantum.tech</a>
             </p>
             <p>Please use the subject line "Privacy Request" so that we can identify your message.</p>
           </Section>
-          <p className="text-sm text-slate-500 border-t border-slate-200 pt-6">
+          <p className="text-sm border-t pt-6" style={{ color: '#64748B', borderColor: '#E2E8F0' }}>
             This policy describes current intended practices at a general level. It should be kept aligned with the actual analytics, hosting, backend, cookies and payment services enabled on the site.
           </p>
-        </div>
+        </article>
       </main>
     </div>
   );
