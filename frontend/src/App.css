@@ -1416,3 +1416,183 @@
   }
 
 }
+
+
+
+/* =========================================================
+   MAH QUANTUM™ — THREE-COLOUR SYSTEM
+   Carbon black / electric lime / signature pink
+   Applied globally across every route and component.
+   ========================================================= */
+:root {
+  --mq-black: #08090b;
+  --mq-black-soft: #101116;
+  --mq-black-raised: #171920;
+  --mq-lime: #c8ff00;
+  --mq-lime-soft: #dcff69;
+  --mq-pink: #ff00a6;
+  --mq-pink-soft: #ff69c8;
+  --ink: var(--mq-lime);
+  --muted: var(--mq-lime-soft);
+  --line: rgba(200, 255, 0, .22);
+  --accent: var(--mq-pink);
+  --background: var(--mq-black);
+  color-scheme: dark;
+}
+
+html, body, #root {
+  min-height: 100%;
+  background: var(--mq-black) !important;
+  color: var(--mq-lime) !important;
+}
+
+body {
+  background: var(--mq-black) !important;
+  color: var(--mq-lime) !important;
+}
+
+#root, #root main, .site-home,
+.site-home section,
+.site-nav, .site-footer,
+.mobile-nav {
+  background-color: var(--mq-black) !important;
+  color: var(--mq-lime) !important;
+}
+
+/* Remove the previous white / grey panels and gradients. */
+.hero-section, .statement-section, .capabilities-section,
+.record-section, .architecture-section, .sectors-section,
+.research-section, .contact-strip, .footer-main,
+.footer-bottom, .hero-dossier, .record-card,
+.system-diagram, .capability-row, .mobile-nav,
+.card-glass, .glass, .glass-sm, .glass-nav,
+[class*="bg-white"], [class*="bg-gray-"],
+[class*="bg-slate-"], [class*="bg-zinc-"] {
+  background: var(--mq-black) !important;
+  color: var(--mq-lime) !important;
+}
+
+/* Surfaces use only black, with lime or pink detailing. */
+.hero-dossier, .record-card, .system-diagram,
+.capability-icon, .research-stamp, input, textarea,
+select, .form-control, [role="dialog"] {
+  border-color: rgba(200, 255, 0, .38) !important;
+  box-shadow: 0 0 0 1px rgba(200, 255, 0, .035);
+}
+
+h1, h2, h3, h4, h5, h6,
+p, li, label, strong, small, span,
+.dossier-title, .dossier-lines strong,
+.capability-content h3, .record-card h3,
+.sector-item strong, .diagram-step strong {
+  color: var(--mq-lime) !important;
+}
+
+.kicker, .section-index, .dossier-top,
+.dossier-footer, .dossier-lines span,
+.record-no, .record-detail span,
+.capability-number, .diagram-label,
+.diagram-step > span, .sector-item span,
+.hero-note, .section-heading > p,
+.record-header > p, .contact-side p,
+.footer-brand p, .footer-column h4 {
+  color: var(--mq-lime-soft) !important;
+  opacity: .78;
+}
+
+/* Pink is the secondary signature accent. */
+a, .text-link, .desktop-nav a,
+.footer-column a, .footer-brand a,
+.dark-link, .hero-copy h1 em,
+.statement-grid h2 span {
+  color: var(--mq-pink) !important;
+}
+
+a:hover, .text-link:hover, .desktop-nav a:hover,
+.desktop-nav a.active, .footer-column a:hover {
+  color: var(--mq-lime) !important;
+}
+
+.desktop-nav a::after,
+.hero-rule, .status-mark {
+  background: var(--mq-lime) !important;
+  border-color: var(--mq-lime) !important;
+}
+
+.button-dark, .nav-contact, .mobile-contact,
+.btn-primary {
+  background: var(--mq-lime) !important;
+  color: var(--mq-black) !important;
+  border: 1px solid var(--mq-lime) !important;
+}
+
+.button-dark:hover, .nav-contact:hover,
+.mobile-contact:hover, .btn-primary:hover {
+  background: var(--mq-pink) !important;
+  border-color: var(--mq-pink) !important;
+  color: var(--mq-black) !important;
+}
+
+.button-outline, .btn-secondary {
+  background: transparent !important;
+  color: var(--mq-lime) !important;
+  border: 1px solid var(--mq-lime) !important;
+}
+
+.button-outline:hover, .btn-secondary:hover {
+  color: var(--mq-black) !important;
+  background: var(--mq-pink) !important;
+  border-color: var(--mq-pink) !important;
+}
+
+.capability-icon, .diagram-step svg,
+.research-stamp svg, .capability-arrow,
+.sector-item svg {
+  color: var(--mq-pink) !important;
+}
+
+.capability-row:hover, .record-card:hover {
+  background: var(--mq-black-raised) !important;
+  box-shadow: inset 3px 0 0 var(--mq-pink);
+}
+
+hr, .hero-rule, .dossier-lines,
+.dossier-lines div, .capability-list,
+.capability-row, .record-grid, .record-card,
+.diagram-step, .sector-list, .sector-item,
+.footer-bottom {
+  border-color: rgba(200, 255, 0, .24) !important;
+}
+
+input, textarea, select {
+  background: var(--mq-black-soft) !important;
+  color: var(--mq-lime) !important;
+  caret-color: var(--mq-pink);
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(220, 255, 105, .55) !important;
+}
+
+::selection {
+  background: var(--mq-pink) !important;
+  color: var(--mq-black) !important;
+}
+
+::-webkit-scrollbar-track { background: var(--mq-black) !important; }
+::-webkit-scrollbar-thumb { background: var(--mq-lime) !important; }
+::-webkit-scrollbar-thumb:hover { background: var(--mq-pink) !important; }
+
+.brand-trademark, .hero-brand-title .brand-trademark {
+  color: var(--mq-pink) !important;
+}
+
+.footer-logo, .brand img, .dossier-mark {
+  background: var(--mq-black) !important;
+}
+
+/* Keep the three-colour system responsive and readable. */
+@media (max-width: 760px) {
+  .site-nav { background: rgba(8, 9, 11, .97) !important; }
+  .mobile-nav { border-top: 1px solid rgba(200, 255, 0, .24) !important; }
+}
