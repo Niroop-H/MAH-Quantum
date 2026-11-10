@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 222 47% 11%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222 47% 11%;
+    --background: 0 0% 3%;
+    --foreground: 75 100% 50%;
+    --card: 0 0% 6%;
+    --card-foreground: 75 100% 50%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 75 100% 50%;
+    --primary: 75 100% 50%;
+    --primary-foreground: 0 0% 3%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 75 100% 50%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 75 100% 70%;
+    --accent: 320 100% 50%;
+    --accent-foreground: 0 0% 3%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 201 100% 50%;
+    --border: 75 100% 50% / 0.25
+    --input: 75 100% 50% / 0.25
+    --ring: 320 100% 50%;
     --radius: 0.75rem;
   }
 }
@@ -32,7 +32,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-[#F8FAFC] text-slate-900;
+    @apply bg-black text-lime-300;
     font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -65,21 +65,21 @@
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #00B4FF 0%, #FF00A0 100%);
+    background: #c8ff00;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-blue {
-    background: linear-gradient(135deg, #00B4FF 0%, #0070CC 100%);
+    background: #ff00a6;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, #00B4FF 0%, #FF00A0 100%);
+    background: #c8ff00;
     color: white;
     font-weight: 600;
     padding: 0.875rem 2rem;
@@ -162,7 +162,7 @@
   background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00B4FF, #FF00A0);
+  background: #c8ff00;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
