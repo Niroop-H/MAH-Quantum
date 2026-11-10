@@ -60,7 +60,7 @@ export default function Home() {
 
           <div className="hero-copy">
             <p className="kicker">
-              MAH QUANTUM · EST. 2023
+              MAH QUANTUM™ · EST. 2023
             </p>
 
             <h1>
@@ -104,7 +104,7 @@ export default function Home() {
             <img className="dossier-mark" src="/logo.jpeg?v=20261110" alt="MAH Quantum emblem" />
 
             <div className="dossier-title">
-              MAH QUANTUM
+              MAH QUANTUM™
             </div>
 
             <p>
