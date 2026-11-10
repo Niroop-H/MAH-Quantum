@@ -105,7 +105,7 @@ const fragmentShader = `
     color += lime * bloomLime * (0.018 + 0.012 * cos(t * 0.18));
 
     // Atmospheric vignette preserves readable contrast for the foreground content.
-    float vignette = smoothstep(1.45, 0.18, length(p * vec2(0.78, 1.12)));
+    float vignette = 1.0 - smoothstep(0.18, 1.45, length(p * vec2(0.78, 1.12)));
     color *= 0.62 + vignette * 0.55;
     color = pow(max(color, 0.0), vec3(0.92));
     gl_FragColor = vec4(color, 1.0);
