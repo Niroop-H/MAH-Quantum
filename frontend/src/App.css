@@ -1536,6 +1536,39 @@ input::placeholder, textarea::placeholder { color: #777f8b !important; }
 .brand-trademark, .hero-brand-title .brand-trademark { color: var(--mq-pink) !important; }
 .footer-logo, .brand img, .dossier-mark { background: var(--mq-black) !important; }
 
+/* Legacy page components: preserve contrast and remove the old blue identity. */
+[class*="text-slate-900"], [class*="text-slate-800"],
+[class*="text-slate-700"], [class*="text-slate-600"],
+[class*="text-slate-500"], [class*="text-gray-900"],
+[class*="text-gray-800"], [class*="text-gray-700"],
+[class*="text-gray-600"], [class*="text-gray-500"] {
+  color: var(--mq-muted) !important;
+}
+h1[class*="text-"], h2[class*="text-"], h3[class*="text-"],
+h4[class*="text-"] {
+  color: var(--mq-white) !important;
+}
+[class*="text-[#00B4FF]"], [style*="#00B4FF"],
+[style*="#0070CC"] {
+  color: var(--mq-pink) !important;
+  -webkit-text-fill-color: var(--mq-pink) !important;
+}
+[style*="#FF00A0"] {
+  color: var(--mq-pink) !important;
+}
+.chip-blue {
+  color: var(--mq-lime) !important;
+  background: rgba(200, 255, 0, .06) !important;
+  border: 1px solid rgba(200, 255, 0, .2) !important;
+}
+.orb-blue {
+  opacity: .08 !important;
+  background: radial-gradient(circle, var(--mq-pink), transparent 68%) !important;
+}
+.gradient-border { background: var(--mq-panel) !important; }
+.gradient-border::before { background: linear-gradient(135deg, var(--mq-lime), var(--mq-pink)) !important; }
+.section-bg-alt { background: var(--mq-panel) !important; }
+
 /* INTERACTIVE ENGINEERING SHOWCASE */
 .industry-showcase {
   padding: 112px 0;
