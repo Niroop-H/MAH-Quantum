@@ -24,13 +24,15 @@ export default function InitiativeRender({ type }) {
       return undefined;
     }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.2;
     el.appendChild(renderer.domElement);
 
     scene.add(new THREE.HemisphereLight(0xbac8d8, 0x141820, 1.65));
-    const key = new THREE.DirectionalLight(0xffffff, 3.2); key.position.set(4, 8, 5); scene.add(key);
+    const key = new THREE.DirectionalLight(0xffffff, 3.2); key.position.set(4, 8, 5); key.castShadow = true; key.shadow.mapSize.set(1024, 1024); key.shadow.camera.near = 1; key.shadow.camera.far = 18; scene.add(key);
     const rim = new THREE.PointLight(0xff00a6, 22, 12); rim.position.set(-4, 2, -3); scene.add(rim);
     const fill = new THREE.PointLight(0xc8ff00, 12, 10); fill.position.set(3, -1, 4); scene.add(fill);
 
@@ -47,7 +49,7 @@ export default function InitiativeRender({ type }) {
       const mesh = new THREE.Mesh(geometry, material);
       mesh.position.set(...position);
       if (rotation) mesh.rotation.set(...rotation);
-      root.add(mesh); return mesh;
+      mesh.castShadow = true; mesh.receiveShadow = true; root.add(mesh); return mesh;
     };
     const box = (size, material, position, rotation) => add(new THREE.BoxGeometry(...size), material, position, rotation);
     const cylinder = (r1,r2,h,material,pos,segments=48) => add(new THREE.CylinderGeometry(r1,r2,h,segments),material,pos);
@@ -181,7 +183,7 @@ export default function InitiativeRender({ type }) {
     const halo=torus(2.35,.008,new THREE.MeshBasicMaterial({color:0x596574,transparent:true,opacity:.55}),[0,-.99,0],[0,0,0]);
     const resize=()=>{const w=Math.max(el.clientWidth,1),h=Math.max(el.clientHeight,1);renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();};
     const observer=new ResizeObserver(resize);observer.observe(el);resize();
-    const animate=()=>{frame=requestAnimationFrame(animate);root.rotation.y+=.0018;renderer.render(scene,camera);};
+    const animate=()=>{frame=requestAnimationFrame(animate);root.rotation.y+=.0008;renderer.render(scene,camera);};
     animate();
     return ()=>{cancelAnimationFrame(frame);observer.disconnect();scene.traverse(o=>{o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();});renderer.dispose();renderer.domElement.remove();};
   },[type]);
