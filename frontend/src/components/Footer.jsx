@@ -10,6 +10,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-main">
         <div className="footer-brand">
+          <img className="footer-logo" src="/logo.jpeg?v=20261110" alt="MAH Quantum emblem" />
           <div className="footer-wordmark">
             MAH <span>QUANTUM</span>
           </div>
