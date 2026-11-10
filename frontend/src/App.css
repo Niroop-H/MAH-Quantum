@@ -1975,3 +1975,114 @@ h4[class*="text-"] {
 .mqsi-network-art { display: block; width: 100%; height: auto; min-height: 230px; }
 @media(max-width:900px) { .mqsi-mission-grid { grid-template-columns: 1fr; gap: 36px; } .mqsi-mission-copy { max-width: 720px; } }
 @media(max-width:620px) { .mqsi-mission-section { padding: 70px 0; } .mqsi-visual-top,.mqsi-visual-bottom { font-size: 7px; padding: 12px; } .mqsi-network-art { min-height: 190px; } }
+
+
+/* HOMEPAGE / CINEMATIC KINETIC ENGINEERING STAGE */
+.hero-section {
+  isolation: isolate;
+  min-height: min(820px, calc(100svh - 76px));
+  display: flex;
+  align-items: center;
+  padding: 112px 0 88px;
+  color: #f1f3f5;
+  background:
+    radial-gradient(ellipse at 76% 45%, rgba(255,0,166,.09), transparent 32%),
+    radial-gradient(ellipse at 57% 80%, rgba(200,255,0,.045), transparent 35%),
+    #080a0e;
+}
+.home-kinetic-backdrop {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: auto;
+}
+.home-kinetic-backdrop canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hero-atmosphere {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(8,10,14,.99) 0%, rgba(8,10,14,.94) 27%, rgba(8,10,14,.56) 52%, rgba(8,10,14,.2) 100%),
+    linear-gradient(0deg, rgba(8,10,14,.8) 0%, transparent 32%, rgba(8,10,14,.12) 100%);
+}
+.hero-rule { border-color: rgba(210,220,232,.12); z-index: 1; }
+.hero-grid { position: relative; z-index: 2; }
+.hero-copy .kicker { color: #c8ff00; }
+.hero-copy h1.hero-brand-title { color: #f3f4f6; text-shadow: 0 8px 35px rgba(0,0,0,.45); }
+.hero-brand-title .brand-trademark { color: #ff00a6; }
+.hero-lede { color: #c0c6cf; max-width: 470px; }
+.hero-note { color: #9ca5b1; }
+.status-mark { background: #c8ff00; box-shadow: 0 0 12px rgba(200,255,0,.55); }
+.hero-actions .button-dark { color: #08090b; background: #ff00a6; }
+.hero-actions .button-dark:hover { background: #c8ff00; }
+.hero-actions .text-link { color: #e4e8ed; }
+.hero-actions .text-link:hover { color: #c8ff00; }
+.hero-dossier {
+  color: #edf0f4;
+  border: 1px solid rgba(206,216,229,.25);
+  background: linear-gradient(145deg, rgba(25,30,39,.88), rgba(10,13,18,.86));
+  box-shadow: 18px 22px 70px rgba(0,0,0,.36), inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter: blur(16px);
+}
+.dossier-top, .dossier-footer { color: #929ca9; }
+.dossier-title { color: #f3f5f7; }
+.hero-dossier > p { color: #aab2bd; }
+.dossier-lines { border-color: rgba(206,216,229,.17); }
+.dossier-lines div { border-color: rgba(206,216,229,.13); }
+.dossier-lines span { color: #a0aab6; }
+.dossier-lines strong { color: #f0f2f5; }
+.dossier-mark { border-color: rgba(200,255,0,.34); }
+.home-motion-toggle {
+  position: absolute;
+  z-index: 4;
+  right: max(24px, calc((100vw - 1240px) / 2));
+  bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 11px;
+  color: #aab2bd;
+  background: rgba(10,13,18,.72);
+  border: 1px solid rgba(206,216,229,.2);
+  font: 600 8px 'IBM Plex Sans',sans-serif;
+  letter-spacing: .13em;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+.home-motion-toggle:hover { color: #c8ff00; border-color: rgba(200,255,0,.55); }
+.motion-indicator { width: 6px; height: 6px; border-radius: 50%; background: #c8ff00; box-shadow: 0 0 10px rgba(200,255,0,.8); }
+.motion-indicator.paused { background: #ff00a6; box-shadow: 0 0 10px rgba(255,0,166,.65); }
+.home-kinetic-fallback {
+  background:
+    radial-gradient(ellipse at 72% 45%, rgba(255,0,166,.19), transparent 25%),
+    radial-gradient(ellipse at 66% 45%, rgba(200,255,0,.12), transparent 38%),
+    #080a0e;
+}
+@media(max-width: 900px) {
+  .hero-section { min-height: 0; padding: 105px 0 86px; }
+  .hero-grid { gap: 42px; }
+  .hero-atmosphere {
+    background: linear-gradient(90deg, rgba(8,10,14,.97), rgba(8,10,14,.78) 58%, rgba(8,10,14,.4)),
+      linear-gradient(0deg, rgba(8,10,14,.72), transparent 55%);
+  }
+}
+@media(max-width: 620px) {
+  .hero-section { padding: 78px 0 78px; }
+  .hero-grid { grid-template-columns: minmax(0,1fr); gap: 42px; }
+  .hero-copy h1.hero-brand-title { font-size: clamp(47px,12vw,70px); }
+  .hero-dossier { max-width: 440px; }
+  .home-kinetic-backdrop { opacity: .7; }
+  .hero-atmosphere {
+    background: linear-gradient(180deg, rgba(8,10,14,.9), rgba(8,10,14,.66) 48%, rgba(8,10,14,.94));
+  }
+  .home-motion-toggle { right: 18px; bottom: 14px; }
+}
+@media(prefers-reduced-motion: reduce) {
+  .home-motion-toggle { display: none; }
+}
