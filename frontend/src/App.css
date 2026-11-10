@@ -1038,6 +1038,16 @@
     65px;
 }
 
+.footer-logo {
+  display: block;
+  width: 76px;
+  height: 76px;
+  margin: 0 0 18px;
+  object-fit: contain;
+  object-position: center;
+  background: #0b0e16;
+}
+
 .footer-wordmark {
   font:
     700
