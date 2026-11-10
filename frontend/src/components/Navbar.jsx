@@ -7,7 +7,6 @@ const navLinks = [
   { to: '/architecture', label: 'Architecture' },
   { to: '/d25', label: 'D25@1007' },
   { to: '/industries', label: 'Industries' },
-  { to: '/services', label: 'Services' },
 ];
 
 export default function Navbar() {
