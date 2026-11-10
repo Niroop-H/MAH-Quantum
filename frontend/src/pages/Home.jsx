@@ -101,9 +101,7 @@ export default function Home() {
               <span>2026 / 27</span>
             </div>
 
-            <div className="dossier-mark">
-              MQ
-            </div>
+            <img className="dossier-mark" src="/logo.jpeg?v=20261110" alt="MAH Quantum emblem" />
 
             <div className="dossier-title">
               MAH QUANTUM
