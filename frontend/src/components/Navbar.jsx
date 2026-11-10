@@ -61,7 +61,7 @@ export default function Navbar() {
           />
 
           <span>
-            MAH <b>QUANTUM</b>
+            MAH <b>QUANTUM<sup className="brand-trademark">™</sup></b>
           </span>
 
         </Link>
