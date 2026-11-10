@@ -52,7 +52,7 @@ export default function Navbar() {
         <Link
           to="/"
           className="brand"
-          aria-label="MAH Quantum home"
+          aria-label="MAH Quantum™ home"
         >
 
           <img
@@ -135,7 +135,7 @@ export default function Navbar() {
             to="/contact"
             className="mobile-contact"
           >
-            Contact MAH Quantum
+            Contact MAH Quantum™
             <ArrowUpRight size={15} />
           </Link>
 
