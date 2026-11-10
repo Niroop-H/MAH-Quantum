@@ -48,7 +48,7 @@ export default function Drone({ className = '' }) {
         animate={{ y: [0, -16, 0], rotate: [0, 1.3, 0, -1.3, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <svg viewBox="0 0 640 480" className="w-full h-auto overflow-visible" role="img" aria-label="Autonomous inspection drone — MAH Quantum edge intelligence">
+        <svg viewBox="0 0 640 480" className="w-full h-auto overflow-visible" role="img" aria-label="Autonomous inspection drone — MAH Quantum™ edge intelligence">
           <defs>
             <linearGradient id="dr-body" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#FFFFFF" />
