@@ -1420,193 +1420,322 @@
 
 
 /* =========================================================
-   MAH QUANTUM™ — THREE-COLOUR SYSTEM
-   Carbon black / electric lime / signature pink
-   Applied globally across every route and component.
+   MAH QUANTUM™ — INDUSTRIAL / DEFENCE-TECH DESIGN SYSTEM
+   Carbon black foundations · restrained lime · signature pink
    ========================================================= */
 :root {
   --mq-black: #08090b;
-  --mq-black-soft: #101116;
-  --mq-black-raised: #171920;
+  --mq-panel: #101217;
+  --mq-panel-raised: #171a21;
+  --mq-white: #eceef1;
+  --mq-muted: #969da8;
+  --mq-line: #292e37;
   --mq-lime: #c8ff00;
-  --mq-lime-soft: #dcff69;
   --mq-pink: #ff00a6;
-  --mq-pink-soft: #ff69c8;
-  --ink: var(--mq-lime);
-  --muted: var(--mq-lime-soft);
-  --line: rgba(200, 255, 0, .22);
+  --ink: var(--mq-white);
+  --muted: var(--mq-muted);
+  --line: var(--mq-line);
   --accent: var(--mq-pink);
-  --background: var(--mq-black);
-  color-scheme: dark;
 }
 
 html, body, #root {
   min-height: 100%;
   background: var(--mq-black) !important;
-  color: var(--mq-lime) !important;
+  color: var(--mq-white);
 }
-
-body {
-  background: var(--mq-black) !important;
-  color: var(--mq-lime) !important;
-}
-
-#root, #root main, .site-home,
-.site-home section,
-.site-nav, .site-footer,
-.mobile-nav {
+body { background: var(--mq-black) !important; color: var(--mq-white); }
+#root, #root main, #root main > div, .site-home,
+.site-nav, .site-footer, .mobile-nav {
   background-color: var(--mq-black) !important;
-  color: var(--mq-lime) !important;
+  color: var(--mq-white);
 }
 
-/* Remove the previous white / grey panels and gradients. */
+/* Replace legacy light surfaces without forcing every element to lime. */
 .hero-section, .statement-section, .capabilities-section,
 .record-section, .architecture-section, .sectors-section,
-.research-section, .contact-strip, .footer-main,
-.footer-bottom, .hero-dossier, .record-card,
-.system-diagram, .capability-row, .mobile-nav,
+.research-section, .contact-strip, .footer-main, .footer-bottom,
+.hero-dossier, .record-card, .system-diagram, .mobile-nav,
 .card-glass, .glass, .glass-sm, .glass-nav,
-[class*="bg-"] {
+[class*="bg-white"], [class*="bg-gray-"], [class*="bg-slate-"],
+[class*="bg-zinc-"], [class*="bg-[#F8FAFC]"] {
   background: var(--mq-black) !important;
-  color: var(--mq-lime) !important;
+  color: var(--mq-white) !important;
 }
-
-/* Surfaces use only black, with lime or pink detailing. */
-.hero-dossier, .record-card, .system-diagram,
-.capability-icon, .research-stamp, input, textarea,
-select, .form-control, [role="dialog"] {
-  border-color: rgba(200, 255, 0, .38) !important;
-  box-shadow: 0 0 0 1px rgba(200, 255, 0, .035);
+.hero-dossier, .record-card, .system-diagram, .capability-icon,
+.research-stamp, input, textarea, select, .form-control {
+  border-color: var(--mq-line) !important;
+  box-shadow: none;
 }
-
 h1, h2, h3, h4, h5, h6,
-p, li, label, strong, small, span,
-.dossier-title, .dossier-lines strong,
-.capability-content h3, .record-card h3,
-.sector-item strong, .diagram-step strong {
-  color: var(--mq-lime) !important;
+.dossier-title, .dossier-lines strong, .capability-content h3,
+.record-card h3, .sector-item strong, .diagram-step strong {
+  color: var(--mq-white) !important;
 }
-
-.kicker, .section-index, .dossier-top,
-.dossier-footer, .dossier-lines span,
-.record-no, .record-detail span,
-.capability-number, .diagram-label,
-.diagram-step > span, .sector-item span,
-.hero-note, .section-heading > p,
-.record-header > p, .contact-side p,
-.footer-brand p, .footer-column h4 {
-  color: var(--mq-lime-soft) !important;
-  opacity: .78;
+p, li, label, small, .dossier-lines span, .kicker,
+.section-index, .dossier-top, .dossier-footer, .hero-note,
+.record-no, .record-detail span, .capability-number,
+.diagram-label, .diagram-step > span, .sector-item span,
+.section-heading > p, .record-header > p, .contact-side p,
+.footer-brand p, .footer-column a, .footer-bottom {
+  color: var(--mq-muted) !important;
 }
-
-/* Normalize Tailwind colour utilities so no legacy blue/white palette leaks through. */
-[class*="text-"] {
+a, .text-link, .dark-link, .footer-brand a,
+.hero-copy h1 em, .text-gradient, .text-gradient-blue {
+  color: var(--mq-pink) !important;
+  -webkit-text-fill-color: var(--mq-pink) !important;
+}
+a:hover, .text-link:hover, .desktop-nav a.active,
+.desktop-nav a:hover, .footer-column a:hover {
   color: var(--mq-lime) !important;
   -webkit-text-fill-color: var(--mq-lime) !important;
-  background-image: none !important;
 }
-.text-gradient {
-  color: var(--mq-pink) !important;
-  -webkit-text-fill-color: var(--mq-pink) !important;
+.desktop-nav a::after { background: var(--mq-pink) !important; }
+.status-mark { background: var(--mq-lime) !important; }
+.nav-contact, .button-dark, .btn-primary, .mobile-contact {
+  background: var(--mq-pink) !important;
+  border: 1px solid var(--mq-pink) !important;
+  color: #08090b !important;
+  -webkit-text-fill-color: #08090b !important;
 }
-a[class*="text-"] {
-  color: var(--mq-pink) !important;
-  -webkit-text-fill-color: var(--mq-pink) !important;
-}
-
-/* Pink is the secondary signature accent. */
-a, .text-link, .desktop-nav a,
-.footer-column a, .footer-brand a,
-.dark-link, .hero-copy h1 em,
-.statement-grid h2 span {
-  color: var(--mq-pink) !important;
-}
-
-a:hover, .text-link:hover, .desktop-nav a:hover,
-.desktop-nav a.active, .footer-column a:hover {
-  color: var(--mq-lime) !important;
-}
-
-.desktop-nav a::after,
-.hero-rule, .status-mark {
+.nav-contact:hover, .button-dark:hover, .btn-primary:hover,
+.mobile-contact:hover {
   background: var(--mq-lime) !important;
   border-color: var(--mq-lime) !important;
 }
-
-.button-dark, .nav-contact, .mobile-contact,
-.btn-primary {
-  background: var(--mq-lime) !important;
-  color: var(--mq-black) !important;
-  border: 1px solid var(--mq-lime) !important;
-}
-
-.button-dark:hover, .nav-contact:hover,
-.mobile-contact:hover, .btn-primary:hover {
-  background: var(--mq-pink) !important;
-  border-color: var(--mq-pink) !important;
-  color: var(--mq-black) !important;
-}
-
 .button-outline, .btn-secondary {
   background: transparent !important;
-  color: var(--mq-lime) !important;
-  border: 1px solid var(--mq-lime) !important;
+  color: var(--mq-white) !important;
+  border: 1px solid #555d68 !important;
 }
-
 .button-outline:hover, .btn-secondary:hover {
-  color: var(--mq-black) !important;
-  background: var(--mq-pink) !important;
   border-color: var(--mq-pink) !important;
-}
-
-.capability-icon, .diagram-step svg,
-.research-stamp svg, .capability-arrow,
-.sector-item svg {
   color: var(--mq-pink) !important;
 }
-
+.capability-icon, .diagram-step svg, .research-stamp svg,
+.capability-arrow, .sector-item svg { color: var(--mq-pink) !important; }
 .capability-row:hover, .record-card:hover {
-  background: var(--mq-black-raised) !important;
-  box-shadow: inset 3px 0 0 var(--mq-pink);
+  background: var(--mq-panel) !important;
+  box-shadow: inset 2px 0 0 var(--mq-pink);
 }
-
-hr, .hero-rule, .dossier-lines,
-.dossier-lines div, .capability-list,
-.capability-row, .record-grid, .record-card,
-.diagram-step, .sector-list, .sector-item,
-.footer-bottom {
-  border-color: rgba(200, 255, 0, .24) !important;
+hr, .hero-rule, .dossier-lines, .dossier-lines div,
+.capability-list, .capability-row, .record-grid, .record-card,
+.diagram-step, .sector-list, .sector-item, .footer-bottom {
+  border-color: var(--mq-line) !important;
 }
-
 input, textarea, select {
-  background: var(--mq-black-soft) !important;
-  color: var(--mq-lime) !important;
+  background: var(--mq-panel) !important;
+  color: var(--mq-white) !important;
+  border-color: var(--mq-line) !important;
   caret-color: var(--mq-pink);
 }
+input::placeholder, textarea::placeholder { color: #777f8b !important; }
+::selection { background: var(--mq-pink); color: var(--mq-black); }
+::-webkit-scrollbar-track { background: var(--mq-black); }
+::-webkit-scrollbar-thumb { background: #4b515b; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--mq-pink); }
+.brand-trademark, .hero-brand-title .brand-trademark { color: var(--mq-pink) !important; }
+.footer-logo, .brand img, .dossier-mark { background: var(--mq-black) !important; }
 
-input::placeholder, textarea::placeholder {
-  color: rgba(220, 255, 105, .55) !important;
+/* INTERACTIVE ENGINEERING SHOWCASE */
+.industry-showcase {
+  padding: 112px 0;
+  background: #0b0d11;
+  border-top: 1px solid var(--mq-line);
+  border-bottom: 1px solid var(--mq-line);
 }
-
-::selection {
-  background: var(--mq-pink) !important;
-  color: var(--mq-black) !important;
+.showcase-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 42px;
 }
-
-::-webkit-scrollbar-track { background: var(--mq-black) !important; }
-::-webkit-scrollbar-thumb { background: var(--mq-lime) !important; }
-::-webkit-scrollbar-thumb:hover { background: var(--mq-pink) !important; }
-
-.brand-trademark, .hero-brand-title .brand-trademark {
-  color: var(--mq-pink) !important;
+.showcase-eyebrow {
+  display: inline-block;
+  color: var(--mq-lime);
+  font: 600 10px/1.4 'IBM Plex Sans', sans-serif;
+  letter-spacing: .16em;
 }
-
-.footer-logo, .brand img, .dossier-mark {
-  background: var(--mq-black) !important;
+.showcase-heading h2 {
+  margin: 14px 0 10px;
+  color: var(--mq-white);
+  font: 500 clamp(32px, 4vw, 52px)/1.05 'Outfit', sans-serif;
+  letter-spacing: -.045em;
 }
-
-/* Keep the three-colour system responsive and readable. */
+.showcase-heading p {
+  margin: 0;
+  max-width: 570px;
+  color: var(--mq-muted);
+  font-size: 14px;
+}
+.showcase-instruction {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--mq-muted);
+  font-size: 10px;
+  letter-spacing: .1em;
+  white-space: nowrap;
+}
+.showcase-instruction svg { color: var(--mq-pink); }
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.model-card {
+  overflow: hidden;
+  min-width: 0;
+  background: #101217;
+  border: 1px solid #292e37;
+  transition: border-color .25s ease, transform .25s ease;
+}
+.model-card:hover {
+  border-color: rgba(255, 0, 166, .6);
+  transform: translateY(-3px);
+}
+.model-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 19px 0;
+  color: #7f8792;
+  font: 600 10px 'IBM Plex Sans', sans-serif;
+  letter-spacing: .12em;
+}
+.model-card-top svg { color: var(--mq-pink); }
+.model-viewer {
+  height: 280px;
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  background:
+    radial-gradient(ellipse at 50% 54%, rgba(46, 52, 62, .42), transparent 62%),
+    #101217;
+}
+.model-viewer:active { cursor: grabbing; }
+.model-viewer canvas { display: block; width: 100%; height: 100%; outline: none; }
+.model-card-copy { padding: 0 20px 22px; }
+.model-tag {
+  color: var(--mq-lime) !important;
+  font: 600 9px 'IBM Plex Sans', sans-serif;
+  letter-spacing: .15em;
+}
+.model-card-copy h3 {
+  margin: 9px 0 7px;
+  color: var(--mq-white);
+  font: 500 23px/1.15 'Outfit', sans-serif;
+}
+.model-card-copy p {
+  max-width: 460px;
+  margin: 0;
+  color: var(--mq-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.showcase-lower {
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+.telemetry-panel, .showcase-cta {
+  background: #101217;
+  border: 1px solid #292e37;
+  padding: 25px;
+}
+.telemetry-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.telemetry-head > svg { color: var(--mq-pink); flex: 0 0 auto; }
+.telemetry-head h3, .showcase-cta h3 {
+  margin: 9px 0 5px;
+  color: var(--mq-white);
+  font: 500 23px 'Outfit', sans-serif;
+}
+.telemetry-head p, .showcase-cta p {
+  margin: 0;
+  color: var(--mq-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.telemetry-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 22px 0 12px;
+}
+.telemetry-tabs button {
+  padding: 7px 10px;
+  background: #171a21;
+  border: 1px solid #303641;
+  color: #aab0b9;
+  font-size: 10px;
+  cursor: pointer;
+}
+.telemetry-tabs button.active {
+  border-color: var(--mq-pink);
+  color: var(--mq-pink);
+}
+.telemetry-chart {
+  position: relative;
+  padding-left: 30px;
+}
+.telemetry-chart svg { display: block; width: 100%; overflow: visible; }
+.chart-axis-labels {
+  position: absolute;
+  left: 0;
+  top: 7px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #69717c;
+  font-size: 9px;
+}
+.chart-gridline { stroke: #303641; stroke-width: 1; stroke-dasharray: 3 5; }
+.chart-area { fill: rgba(255, 0, 166, .09); }
+.chart-line { fill: none; stroke: var(--mq-pink); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.chart-point { fill: var(--mq-lime); stroke: #101217; stroke-width: 1.5; }
+.telemetry-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid #292e37;
+  padding-top: 13px;
+  color: var(--mq-muted);
+  font-size: 10px;
+}
+.telemetry-foot strong { color: var(--mq-lime); font-size: 15px; }
+.telemetry-foot i { display: inline-block; width: 6px; height: 6px; margin-right: 7px; border-radius: 50%; background: var(--mq-pink); }
+.showcase-cta { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+.showcase-cta > svg { margin: 23px 0 4px; color: var(--mq-lime); }
+.showcase-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  color: var(--mq-pink);
+  font-size: 12px;
+  font-weight: 600;
+}
+.model-viewer-fallback::after {
+  content: '3D preview unavailable on this device';
+  display: grid;
+  height: 100%;
+  place-items: center;
+  color: var(--mq-muted);
+  font-size: 12px;
+}
 @media (max-width: 760px) {
-  .site-nav { background: rgba(8, 9, 11, .97) !important; }
-  .mobile-nav { border-top: 1px solid rgba(200, 255, 0, .24) !important; }
+  .industry-showcase { padding: 76px 0; }
+  .showcase-heading { align-items: flex-start; flex-direction: column; }
+  .model-grid, .showcase-lower { grid-template-columns: 1fr; }
+  .model-viewer { height: 245px; }
+  .telemetry-panel, .showcase-cta { padding: 19px; }
+  .showcase-instruction { white-space: normal; }
 }
