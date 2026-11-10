@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import InitiativeRender from '../components/InitiativeRender';
 import {
   ArrowUpRight, ChevronRight, Shield, Cpu, BrainCircuit, RadioTower,
   Network, Satellite, Workflow, Layers3, FlaskConical, CircuitBoard,
@@ -81,18 +82,9 @@ const projectVisuals = {
 function TechnicalArt({ type, accent }) {
   return (
     <div className={`initiative-art art-${accent}`}>
-      <div className="initiative-art-top"><span>MAH QUANTUM / SYSTEM STUDY</span><span>FIG. {type.toUpperCase()}</span></div>
-      <svg viewBox="0 0 560 350" role="img" aria-label="Abstract technical illustration">
-        <defs>
-          <linearGradient id={`artStroke-${type}`} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor={accent === 'pink' ? '#ff00a6' : '#c8ff00'}/>
-            <stop offset="100%" stopColor="#d9e0e8"/>
-          </linearGradient>
-        </defs>
-        <g className="art-drawing" stroke={`url(#artStroke-${type})`}>{projectVisuals[type]}</g>
-        <g className="art-coordinate"><circle cx="280" cy="175" r="145"/><circle cx="280" cy="175" r="120"/><path d="M280 18V332 M40 175H520"/></g>
-      </svg>
-      <div className="initiative-art-bottom"><span>CONCEPTUAL VISUALISATION</span><span>DETAILS WITHHELD</span></div>
+      <div className="initiative-art-top"><span>MAH QUANTUM / ENGINEERING VISUALISATION</span><span>3D / {type.toUpperCase()}</span></div>
+      <InitiativeRender type={type}/>
+      <div className="initiative-art-bottom"><span>PHYSICALLY BASED 3D RENDER</span><span>ILLUSTRATIVE CONCEPT</span></div>
     </div>
   );
 }
