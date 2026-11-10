@@ -20,8 +20,8 @@
     --accent-foreground: 0 0% 3%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-    --border: 75 100% 50% / 0.25
-    --input: 75 100% 50% / 0.25
+    --border: 75 100% 50% / 0.25;
+    --input: 75 100% 50% / 0.25;
     --ring: 320 100% 50%;
     --radius: 0.75rem;
   }
@@ -32,7 +32,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-black text-lime-300;
+    @apply bg-black text-white;
     font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -65,7 +65,7 @@
   }
 
   .text-gradient {
-    background: #c8ff00;
+    background: #ff00a6;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -80,7 +80,7 @@
 
   .btn-primary {
     background: #c8ff00;
-    color: white;
+    color: #08090b;
     font-weight: 600;
     padding: 0.875rem 2rem;
     border-radius: 0.75rem;
