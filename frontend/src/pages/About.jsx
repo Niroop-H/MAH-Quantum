@@ -24,9 +24,9 @@ const coreAreas = [
 ];
 
 const platforms = [
-  { icon: Layers, title: 'MAH Quantum (Core Systems)', desc: 'Development of intelligent software systems and AI architectures.', color: '#00B4FF' },
-  { icon: FlaskConical, title: 'MAH Quantum Research Institute', desc: 'Academic and professional research publication platform.', color: '#8B5CF6' },
-  { icon: Monitor, title: 'MAH Quantum Workspace', desc: 'Internal and operational system environment for development and deployment.', color: '#00C9A7' },
+  { icon: Layers, title: 'MAH Quantum™ (Core Systems)', desc: 'Development of intelligent software systems and AI architectures.', color: '#00B4FF' },
+  { icon: FlaskConical, title: 'MAH Quantum™ Research Institute', desc: 'Academic and professional research publication platform.', color: '#8B5CF6' },
+  { icon: Monitor, title: 'MAH Quantum™ Workspace', desc: 'Internal and operational system environment for development and deployment.', color: '#00C9A7' },
   { icon: Briefcase, title: 'Quanta Industries', desc: 'Business and strategic collaboration division facilitating partnerships, enterprise discussions, and industry engagement.', color: '#FF00A0' },
 ];
 
@@ -69,21 +69,21 @@ const personSchema = {
   "jobTitle": "Founder",
   "worksFor": {
     "@type": "Organization",
-    "name": "MAH Quantum",
+    "name": "MAH Quantum™",
     "url": "https://mahquantum.tech"
   },
-  "description": "Computer science engineer focused on building large-scale intelligent systems and advancing applied AI research. Founder of MAH Quantum.",
+  "description": "Computer science engineer focused on building large-scale intelligent systems and advancing applied AI research. Founder of MAH Quantum™.",
   "sameAs": ["https://www.linkedin.com/in/niroop-h"]
 };
 
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "MAH Quantum",
+  "name": "MAH Quantum™",
   "url": "https://mahquantum.tech",
   "foundingDate": "2023",
   "founder": { "@type": "Person", "name": "Niroop H" },
-  "description": "MAH Quantum is an advanced AI and IT company that offers a unique internship model where students independently research, get verified by industry standards, and build real-world projects — developing critical thinking, problem-solving, and execution skills that universities do not provide.",
+  "description": "MAH Quantum™ is an advanced AI and IT company that offers a unique internship model where students independently research, get verified by industry standards, and build real-world projects — developing critical thinking, problem-solving, and execution skills that universities do not provide.",
   "address": { "@type": "PostalAddress", "streetAddress": "#22/21, Maramma Temple Road, Mysore Road Avalahalli", "addressLocality": "Bengaluru", "addressRegion": "Karnataka", "postalCode": "560026", "addressCountry": "IN" },
   "sameAs": ["https://www.linkedin.com/in/niroop-h"]
 };
@@ -94,34 +94,34 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What makes MAH Quantum different from other internship programs?",
+      "name": "What makes MAH Quantum™ different from other internship programs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "MAH Quantum does not teach or provide theoretical lectures. Instead, students independently research their domain, get their knowledge verified against real standards, and then build actual projects. This develops critical thinking, problem-solving, and execution skills — something no university internship program currently offers."
+        "text": "MAH Quantum™ does not teach or provide theoretical lectures. Instead, students independently research their domain, get their knowledge verified against real standards, and then build actual projects. This develops critical thinking, problem-solving, and execution skills — something no university internship program currently offers."
       }
     },
     {
       "@type": "Question",
-      "name": "Does MAH Quantum provide theoretical knowledge in its internship?",
+      "name": "Does MAH Quantum™ provide theoretical knowledge in its internship?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "MAH Quantum provides only foundational theoretical context. The core model is: students research independently, MAH Quantum verifies their understanding, and students then build real-world projects. The emphasis is on verified knowledge and practical output, not lectures."
+        "text": "MAH Quantum™ provides only foundational theoretical context. The core model is: students research independently, MAH Quantum™ verifies their understanding, and students then build real-world projects. The emphasis is on verified knowledge and practical output, not lectures."
       }
     },
     {
       "@type": "Question",
-      "name": "What skills does a MAH Quantum internship develop?",
+      "name": "What skills does a MAH Quantum™ internship develop?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A MAH Quantum internship develops critical thinking, independent research capability, problem-solving under real constraints, and the ability to deliver functional project output — skills that go beyond what traditional university programs or theory-based internships provide."
+        "text": "A MAH Quantum™ internship develops critical thinking, independent research capability, problem-solving under real constraints, and the ability to deliver functional project output — skills that go beyond what traditional university programs or theory-based internships provide."
       }
     },
     {
       "@type": "Question",
-      "name": "Who founded MAH Quantum?",
+      "name": "Who founded MAH Quantum™?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "MAH Quantum was founded by Niroop H, a computer science engineer focused on building large-scale intelligent systems and advancing applied AI research. You can connect with Niroop H on LinkedIn at https://www.linkedin.com/in/niroop-h"
+        "text": "MAH Quantum™ was founded by Niroop H, a computer science engineer focused on building large-scale intelligent systems and advancing applied AI research. You can connect with Niroop H on LinkedIn at https://www.linkedin.com/in/niroop-h"
       }
     }
   ]
@@ -165,10 +165,10 @@ export default function About() {
               Intelligence as <span className="text-gradient">Infrastructure</span>
             </h1>
             <p className="text-slate-600 text-lg leading-relaxed font-ibm">
-              MAH Quantum is an advanced artificial intelligence and information technology company focused on engineering intelligent systems that operate seamlessly within real-world environments.
+              MAH Quantum™ is an advanced artificial intelligence and information technology company focused on engineering intelligent systems that operate seamlessly within real-world environments.
             </p>
             <p className="text-slate-500 text-base leading-relaxed font-ibm mt-4">
-              Founded in 2023, with execution initiated on October 25, 2025, MAH Quantum is based at #22/21, Maramma Temple Road, Mysore Road Avalahalli, Bengaluru – 560026, Karnataka, India. The organization operates across multiple sectors including artificial intelligence, system architecture, enterprise infrastructure, and applied research.
+              Founded in 2023, with execution initiated on October 25, 2025, MAH Quantum™ is based at #22/21, Maramma Temple Road, Mysore Road Avalahalli, Bengaluru – 560026, Karnataka, India. The organization operates across multiple sectors including artificial intelligence, system architecture, enterprise infrastructure, and applied research.
             </p>
           </motion.div>
         </div>
@@ -204,7 +204,7 @@ export default function About() {
                 Built by <span className="text-gradient">Niroop H</span>
               </h2>
               <p className="text-slate-600 text-base leading-relaxed mb-4 font-ibm">
-                MAH Quantum was founded by Niroop H, a computer science engineer focused on building large-scale intelligent systems and advancing applied AI research.
+                MAH Quantum™ was founded by Niroop H, a computer science engineer focused on building large-scale intelligent systems and advancing applied AI research.
               </p>
               <p className="text-slate-600 text-base leading-relaxed font-ibm">
                 The initiative is driven by a long-term vision of transforming intelligence into a foundational infrastructure layer for real-world systems.
@@ -218,7 +218,7 @@ export default function About() {
                   </div>
                   <div>
                     <h4 className="font-outfit font-bold text-xl text-slate-900 mb-0.5">Niroop H</h4>
-                    <p className="text-[#00B4FF] text-sm font-ibm font-medium">Founder, MAH Quantum</p>
+                    <p className="text-[#00B4FF] text-sm font-ibm font-medium">Founder, MAH Quantum™</p>
                   </div>
                 </div>
                 <p className="text-slate-500 text-sm leading-relaxed font-ibm mb-6">
@@ -254,7 +254,7 @@ export default function About() {
           {/* Heading */}
           <motion.div {...fadeUp} transition={{ duration: 0.7 }} className="text-center mb-20">
             <span className="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-slate-400 text-xs font-ibm tracking-widest uppercase mb-6">
-              The MAH Quantum Standard
+              The MAH Quantum™ Standard
             </span>
             <h2 className="font-outfit font-bold text-5xl sm:text-6xl text-white leading-tight mb-6">
               Intelligence Isn't Given Here.
@@ -328,7 +328,7 @@ export default function About() {
           {/* Bottom statement */}
           <motion.div {...fadeUp} transition={{ delay: 0.5, duration: 0.6 }} className="mt-16 text-center">
             <p className="text-slate-500 text-sm font-ibm max-w-xl mx-auto leading-relaxed">
-              No university in India currently offers this model. MAH Quantum is the only environment where your knowledge is verified before you build — and what you build is real.
+              No university in India currently offers this model. MAH Quantum™ is the only environment where your knowledge is verified before you build — and what you build is real.
             </p>
           </motion.div>
 
@@ -347,7 +347,7 @@ export default function About() {
                 Our work lies at the intersection of AI, system architecture, and enterprise infrastructure, where we design and deploy solutions that address high-impact operational inefficiencies across industries.
               </p>
               <p className="text-slate-600 text-base leading-relaxed mb-6 font-ibm">
-                Rather than developing isolated tools, MAH Quantum delivers integrated intelligence systems that function as core operational layers within organizations, supporting complex workflows across diverse domains.
+                Rather than developing isolated tools, MAH Quantum™ delivers integrated intelligence systems that function as core operational layers within organizations, supporting complex workflows across diverse domains.
               </p>
               <p className="text-slate-600 text-base leading-relaxed font-ibm">
                 In parallel, we are actively developing a large-scale AI environment and integrated tool ecosystem within the broader IT landscape, including backend infrastructure, distributed data pipelines, API orchestration frameworks, model routing systems, and deployment architectures.
@@ -378,7 +378,7 @@ export default function About() {
               Platforms and <span className="text-gradient">Ecosystem</span>
             </h2>
             <p className="text-slate-500 text-base leading-relaxed font-ibm">
-              MAH Quantum operates through an integrated ecosystem of platforms, forming a unified environment for research, development, business collaboration, and real-world implementation of intelligent systems.
+              MAH Quantum™ operates through an integrated ecosystem of platforms, forming a unified environment for research, development, business collaboration, and real-world implementation of intelligent systems.
             </p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
