@@ -7,7 +7,7 @@ const fadeUp = { initial: { opacity: 0, y: 32 }, whileInView: { opacity: 1, y: 0
 const focusAreas = [
   { icon: Handshake, title: 'Strategic Partnerships', desc: 'Building and managing enterprise and institutional collaborations.' },
   { icon: Briefcase, title: 'Business Development', desc: 'Driving commercial engagements and go-to-market strategy.' },
-  { icon: Globe, title: 'Industry Engagement', desc: 'Representing MAH Quantum in cross-sector conversations and standards work.' },
+  { icon: Globe, title: 'Industry Engagement', desc: 'Representing MAH Quantum™ in cross-sector conversations and standards work.' },
 ];
 
 export default function QuantaIndustries() {
@@ -38,7 +38,7 @@ export default function QuantaIndustries() {
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.p {...fadeUp} transition={{ duration: 0.6 }} className="text-slate-600 text-lg leading-relaxed font-ibm max-w-3xl mb-14">
-            Quanta Industries is the business and strategic collaboration division of MAH Quantum — facilitating
+            Quanta Industries is the business and strategic collaboration division of MAH Quantum™ — facilitating
             partnerships, enterprise discussions, and industry engagement across our sectors of operation.
           </motion.p>
 
