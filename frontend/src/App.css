@@ -1467,7 +1467,7 @@ body {
 .system-diagram, .capability-row, .mobile-nav,
 .card-glass, .glass, .glass-sm, .glass-nav,
 [class*="bg-white"], [class*="bg-gray-"],
-[class*="bg-slate-"], [class*="bg-zinc-"] {
+[class*="bg-slate-"], [class*="bg-zinc-"], [class*="bg-["] {
   background: var(--mq-black) !important;
   color: var(--mq-lime) !important;
 }
