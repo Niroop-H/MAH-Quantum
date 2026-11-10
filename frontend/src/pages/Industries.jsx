@@ -10,7 +10,7 @@ const divisions = [
     name: 'D.S Industries',
     tagline: 'Engineering & Manufacturing Division',
     image: '/companies/ds-industries.jpeg',
-    desc: 'The industrial engineering and production arm — responsible for hardware integration, manufacturing partnerships, and physical deployment of MAH Quantum systems.',
+    desc: 'The industrial engineering and production arm — responsible for hardware integration, manufacturing partnerships, and physical deployment of MAH Quantum™ systems.',
     to: '/industries/ds-industries',
   },
   {
@@ -18,7 +18,7 @@ const divisions = [
     name: 'Quanta Industries',
     tagline: 'Business & Strategic Collaboration Division',
     image: '/companies/quanta-industries.png',
-    desc: 'The business and strategic collaboration division facilitating partnerships, enterprise discussions, and industry engagement on behalf of MAH Quantum.',
+    desc: 'The business and strategic collaboration division facilitating partnerships, enterprise discussions, and industry engagement on behalf of MAH Quantum™.',
     to: '/industries/quanta-industries',
   },
 ];
@@ -36,7 +36,7 @@ export default function Industries() {
               Our <span className="text-gradient">Divisions</span>
             </h1>
             <p className="text-slate-600 text-lg leading-relaxed font-ibm">
-              MAH Quantum operates through specialized divisions, each focused on a distinct part of bringing intelligent systems from research to real-world deployment.
+              MAH Quantum™ operates through specialized divisions, each focused on a distinct part of bringing intelligent systems from research to real-world deployment.
             </p>
           </motion.div>
         </div>
