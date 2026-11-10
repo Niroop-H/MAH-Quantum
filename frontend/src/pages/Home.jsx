@@ -433,6 +433,73 @@ export default function Home() {
       </section>
 
 
+
+      {/* MQSI QUANTUM MISSION */}
+      <section className="mqsi-mission-section">
+        <div className="container mqsi-mission-grid">
+          <div className="mqsi-mission-copy">
+            <p className="section-index">RESEARCH ECOSYSTEM / QUANTUM INITIATIVE</p>
+            <div className="mqsi-kicker"><span /> MQSI ADVANCED RESEARCH COMMUNITY</div>
+            <h2>Quantum research.<br/><em>Connected minds. Real progress.</em></h2>
+            <p className="body-copy">
+              Explore the MQSI Quantum Mission — a research community advancing quantum computing
+              knowledge, collaborative experimentation and institutional research engagement.
+            </p>
+            <a className="mqsi-mission-link" href="https://mqsiquantum.mahquantum.tech/" target="_blank" rel="noopener noreferrer">
+              Explore MQSI Quantum Mission <ArrowUpRight size={17}/>
+            </a>
+            <span className="mqsi-powered">LED BY MQSI ADVANCED RESEARCH COMMUNITY · POWERED BY MAH QUANTUM</span>
+          </div>
+          <div className="mqsi-mission-visual" aria-label="Quantum research network visualisation">
+            <div className="mqsi-visual-top"><span>MQSI / QUANTUM RESEARCH NETWORK</span><span>RESEARCH ECOSYSTEM</span></div>
+            <svg className="mqsi-network-art" viewBox="0 0 560 340" role="img" aria-label="Abstract quantum research network with connected institutions and compute nodes">
+              <defs>
+                <linearGradient id="mqsiTrace" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stopColor="#c8ff00" stopOpacity=".8"/>
+                  <stop offset="1" stopColor="#ff00a6" stopOpacity=".8"/>
+                </linearGradient>
+                <radialGradient id="mqsiCore">
+                  <stop offset="0" stopColor="#ff00a6" stopOpacity=".45"/>
+                  <stop offset="1" stopColor="#ff00a6" stopOpacity="0"/>
+                </radialGradient>
+              </defs>
+              <circle cx="280" cy="164" r="126" fill="none" stroke="#303640" strokeDasharray="2 8"/>
+              <circle cx="280" cy="164" r="94" fill="none" stroke="#303640"/>
+              <circle cx="280" cy="164" r="67" fill="url(#mqsiCore)"/>
+              <g fill="none" stroke="url(#mqsiTrace)" strokeWidth="1.5">
+                <path d="M280 164 L280 48 L164 48 L112 100"/>
+                <path d="M280 164 L408 164 L468 104"/>
+                <path d="M280 164 L280 278 L392 278 L448 228"/>
+                <path d="M280 164 L152 210 L96 264"/>
+                <path d="M280 164 L196 94 L196 34"/>
+                <path d="M280 164 L366 90 L366 40"/>
+              </g>
+              <g fill="#c8ff00">
+                <circle cx="112" cy="100" r="5"/><circle cx="468" cy="104" r="5"/>
+                <circle cx="448" cy="228" r="5"/><circle cx="96" cy="264" r="5"/>
+                <circle cx="196" cy="34" r="4"/><circle cx="366" cy="40" r="4"/>
+              </g>
+              <g fill="#ff00a6">
+                <circle cx="280" cy="48" r="5"/><circle cx="408" cy="164" r="5"/>
+                <circle cx="392" cy="278" r="5"/><circle cx="152" cy="210" r="5"/>
+              </g>
+              <g transform="translate(280 164)">
+                <rect x="-37" y="-37" width="74" height="74" rx="8" fill="#171b23" stroke="#c8ff00" strokeOpacity=".7"/>
+                <rect x="-25" y="-25" width="50" height="50" rx="4" fill="#242b35" stroke="#ff00a6"/>
+                <path d="M-16 -9 H16 M-16 0 H16 M-16 9 H16 M-9 -16 V16 M0 -16 V16 M9 -16 V16" stroke="#c8ff00" strokeOpacity=".65"/>
+                <circle r="5" fill="#ff00a6"/>
+              </g>
+              <g fill="#8f98a4" fontSize="9" letterSpacing="1.5">
+                <text x="62" y="85">INSTITUTIONS</text><text x="414" y="88">COLLABORATION</text>
+                <text x="410" y="250">RESEARCH</text><text x="52" y="286">QUANTUM COMPUTE</text>
+                <text x="230" y="18">KNOWLEDGE</text>
+              </g>
+            </svg>
+            <div className="mqsi-visual-bottom"><span>01 / COLLABORATIVE RESEARCH</span><span>OPEN EXTERNAL PLATFORM ↗</span></div>
+          </div>
+        </div>
+      </section>
+
       <IndustryShowcase />
 
       {/* RESEARCH */}
