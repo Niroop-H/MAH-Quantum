@@ -31,7 +31,6 @@ export default function Footer() {
         <div className="footer-column">
           <h4>Company</h4>
           <Link to="/about">About</Link>
-          <Link to="/services">Services</Link>
           <a href="https://mqsiquantum.mahquantum.tech/" target="_blank" rel="noopener noreferrer">MQSI Quantum Mission <ArrowUpRight size={13} /></a>
           <Link to="/contact">Contact</Link>
           <Link to="/privacy-policy">Privacy Policy</Link>
