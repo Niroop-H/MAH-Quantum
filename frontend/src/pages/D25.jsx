@@ -89,9 +89,6 @@ function TechnicalArt({ type, accent }) {
             <stop offset="100%" stopColor="#d9e0e8"/>
           </linearGradient>
         </defs>
-        <g className="art-blueprint-lines">
-          <path d="M30 70H530 M30 140H530 M30 210H530 M30 280H530 M90 25V325 M190 25V325 M290 25V325 M390 25V325 M490 25V325"/>
-        </g>
         <g className="art-drawing" stroke={`url(#artStroke-${type})`}>{projectVisuals[type]}</g>
         <g className="art-coordinate"><circle cx="280" cy="175" r="145"/><circle cx="280" cy="175" r="120"/><path d="M280 18V332 M40 175H520"/></g>
       </svg>
